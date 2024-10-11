@@ -8,8 +8,9 @@ from ncps.torch import LTC
 
 
 class LTCNet(L.LightningModule):
-    def __init__(self, in_features, out_features, n_hidden_layers, n_hidden):
+    def __init__(self, in_features, out_features, n_hidden_layers, n_hidden, lr):
         super().__init__()
+        self.learning_rate = lr
         self.input = nn.Linear(in_features, n_hidden)
         self.in_activation = nn.ReLU()
         hidden_layers = OrderedDict()
@@ -20,9 +21,8 @@ class LTCNet(L.LightningModule):
         self.liquid = LTC(n_hidden, n_hidden, return_sequences=True)
         self.output = nn.Linear(n_hidden, out_features)
 
-        return
+    def training_step(self, batch, batch_idx):
 
-    def training_step(self, *args: Any, **kwargs: Any):
         return
 
     def validation_step(self, *args: Any, **kwargs: Any):
@@ -32,8 +32,15 @@ class LTCNet(L.LightningModule):
         return
 
     def configure_optimizers(self):
-        return
+        optimizer = torch.optim.Adam(self.parameters(), lr=self.learning_rate)
+        return optimizer
 
-    def forward(self, *args: Any, **kwargs: Any):
-
-        return
+    def forward(self, x):
+        batch, timesteps, features = x.size()
+        x = self.input(x)
+        x = self.in_activation(x)
+        x = self.hiddens(x)
+        out, liq_state = self.liquid(x)
+        out = self.output(out)
+        out = torch.log_softmax(out, dim=1)
+        return out
