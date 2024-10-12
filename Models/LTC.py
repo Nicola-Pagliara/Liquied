@@ -1,10 +1,9 @@
-import os
-import torch
-from torch import nn
-import torch.nn.functional as F
-import lightning as L
 from collections import OrderedDict
 from ncps.torch import LTC
+from torch import nn
+import lightning as L
+import torch
+import torch.nn.functional as F
 
 
 class LTCNet(L.LightningModule):
@@ -22,14 +21,26 @@ class LTCNet(L.LightningModule):
         self.output = nn.Linear(n_hidden, out_features)
 
     def training_step(self, batch, batch_idx):
+        x, y = batch
+        y_pred, _ = self.forward(x)
+        y_pred = y_pred.view_as(y)
+        loss = self.binary_cross_entropy(y_pred, y)
+        self.log("train_loss", loss, prog_bar=True)
+        return {"loss": loss}
 
-        return
+    def validation_step(self, batch, batch_idx):
+        x, y = batch
+        y_pred, _ = self.forward(x)
+        y_pred = y_pred.view_as(y)
+        loss = self.binary_cross_entropy(y_pred, y)
+        self.log("val_loss", loss, prog_bar=True)
+        return {"val_loss": loss}
 
-    def validation_step(self, *args: Any, **kwargs: Any):
-        return
+    def test_step(self, batch, batch_idx):
+        return self.validation_step(batch, batch_idx)
 
-    def test_step(self, *args: Any, **kwargs: Any):
-        return
+    def binary_cross_entropy(self, logits, labels):
+        return F.binary_cross_entropy(logits, labels)
 
     def configure_optimizers(self):
         optimizer = torch.optim.Adam(self.parameters(), lr=self.learning_rate)
