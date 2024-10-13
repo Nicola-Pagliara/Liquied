@@ -1,0 +1,18 @@
+data:
+  path:
+  size:
+train:
+    data-batch: 1
+    epochs: 50
+    optimizer:
+        type: 'Adam'
+    accelerator: 'cpu'
+    metrics: ["accuracy", "precision", "recall", "F1-score"]
+model:
+    input: [1, 50, 1]
+    n_hidden_layers: 4
+    n_hidden_width: 64
+    learning_rate: 1e-03
+    output: 2
+
+  
