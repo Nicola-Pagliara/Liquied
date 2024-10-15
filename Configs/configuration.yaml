@@ -8,6 +8,9 @@ train:
         type: 'Adam'
     accelerator: 'cpu'
     metrics: ["accuracy", "precision", "recall", "F1-score"]
+    wandb:
+      project-name: 'Liquied'
+      log_all: 'all'
 model:
     input: [1, 50, 1]
     n_hidden_layers: 4
