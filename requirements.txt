@@ -166,3 +166,5 @@ urllib3==2.2.3
 wandb==0.18.3
 xacro==1.14.18
 yarl==1.14.0
+
+torchvision==0.19.1

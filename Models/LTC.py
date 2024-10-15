@@ -19,21 +19,22 @@ class LTCNet(L.LightningModule):
         self.hiddens = nn.Sequential(hidden_layers)
         self.liquid = LTC(n_hidden, n_hidden, return_sequences=True)
         self.output = nn.Linear(n_hidden, out_features)
+        self.save_hyperparameters()
 
     def training_step(self, batch, batch_idx):
         x, y = batch
         y_pred, _ = self.forward(x)
         y_pred = y_pred.view_as(y)
         loss = self.binary_cross_entropy(y_pred, y)
-        self.log("train_loss", loss, prog_bar=True)
-        return {"loss": loss}
+        self.log("train_loss", loss, prog_bar=True, on_epoch=True)
+        return {"loss": loss},
 
     def validation_step(self, batch, batch_idx):
         x, y = batch
         y_pred, _ = self.forward(x)
         y_pred = y_pred.view_as(y)
         loss = self.binary_cross_entropy(y_pred, y)
-        self.log("val_loss", loss, prog_bar=True)
+        self.log("val_loss", loss, prog_bar=True, on_epoch=True)
         return {"val_loss": loss}
 
     def test_step(self, batch, batch_idx):
@@ -47,11 +48,12 @@ class LTCNet(L.LightningModule):
         return optimizer
 
     def forward(self, x):
-        batch, timesteps, features = x.size()
+        batch, features = x.size()
+        x = x.view(batch, -1)
         x = self.input(x)
         x = self.in_activation(x)
         x = self.hiddens(x)
         out, liq_state = self.liquid(x)
         out = self.output(out)
-        out = torch.log_softmax(out, dim=1)
+        out = F.log_softmax(out, dim=1)
         return out
