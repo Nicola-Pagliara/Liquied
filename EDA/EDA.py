@@ -34,6 +34,11 @@ def overview_analysis(original_path: str, name_data: str):
     filter_dataset = clean_dataset(dataset, 'AT')
     plot_data(data_to_plot=filter_dataset, flag_EU='AT')
     # generate_anomaly_dataset(filter_data, 'Train/train_data', 'AT')
+    data_view = dataset.copy()
+    filter_data = data_view.iloc[11:]
+    # plot_data(data_to_plot=filter_data, flag_EU='')
+    # clean_dataset(dataset)
+    generate_anomaly_dataset(filter_data, 'Train/train_data', 'AT')
     return
 
 
@@ -88,6 +93,20 @@ def generate_anomaly_dataset(cleaned_data, save_path, col):
     with open(save_path + '/' + col + 'anomaly.json', 'w') as f:
         json.dump(dict_anomaly, f)
 
+    outline_mad = mad(cleaned_data[col])
+    outline_iqr = IQR(cleaned_data, col)
+    outline_z_score = z_score(cleaned_data[col])
+    dict_anomaly.update({f'load of {col}': cleaned_data.values})
+    dict_anomaly.update({f'Mean absolute deviation Anomaly load of {col}': outline_mad.values})
+    dict_anomaly.update({f'Interquartile Range upper Anomaly of {col}': outline_iqr[0]})
+    dict_anomaly.update({f'Z-score Anomaly of {col}': outline_z_score.values})
+    if os.path.exists(save_path):
+        os.removedirs(save_path)
+    if not os.path.exists(save_path):
+        os.makedirs(save_path)
+
+    with open(save_path + '/' + col + '.json', 'w') as f:
+        json.dump(dict_anomaly, f)
     return
 
 
