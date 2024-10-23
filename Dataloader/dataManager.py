@@ -25,11 +25,12 @@ class TSDataset(L.LightningDataModule):
         dataset = pd.read_excel(self.path_dir)
         ecdl_full = ElConsDataset(dataset=dataset, transform=self.transform)
         if stage == 'fit':
-            self.ecdl_train, self.ecdl_val = random_split(dataset=ecdl_full, lengths=[0.7, 0.3], generator=torch.Generator().manual_seed(42))
+            self.ecdl_train, self.ecdl_val = random_split(dataset=ecdl_full, lengths=[0.7, 0.3],
+                                                          generator=torch.Generator().manual_seed(42))
 
         return
 
-    def train_dataloader(self) :
+    def train_dataloader(self):
         return DataLoader(self.ecdl_train, batch_size=self.batch_size, num_workers=1)
 
     def val_dataloader(self):

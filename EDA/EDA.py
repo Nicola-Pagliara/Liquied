@@ -1,6 +1,7 @@
 import datetime
 import os.path
 
+import pandas.core.frame
 import seaborn as sns
 import matplotlib.pyplot as mpt
 import pandas as pd
@@ -17,7 +18,7 @@ Evaluate OOP paradigm class EDA
 """
 
 
-def overview_analysis(original_path: str, name_data: str):
+def overview_analysis(original_path: str, name_data: list[str]):
     """
     This method do a complete overview of times series integrate the following steps:
     1) Extract data
@@ -30,15 +31,53 @@ def overview_analysis(original_path: str, name_data: str):
     :param name_data: sheet name with the execl file to analyze
     :return: path where the preprocessed dataset it's store.
     """
-    dataset = pd.read_excel(original_path, sheet_name=name_data, parse_dates=['Unnamed: 1'])
-    filter_dataset = clean_dataset(dataset, 'AT')
-    plot_data(data_to_plot=filter_dataset, flag_EU='AT')
-    # generate_anomaly_dataset(filter_data, 'Train/train_data', 'AT')
-    data_view = dataset.copy()
-    filter_data = data_view.iloc[11:]
-    # plot_data(data_to_plot=filter_data, flag_EU='')
-    # clean_dataset(dataset)
-    generate_anomaly_dataset(filter_data, 'Train/train_data', 'AT')
+    log = getLogger('EDA Log')
+    for sheet in name_data:
+        match sheet:
+            case '15min':
+                log.warn('Enter 15 min case')
+                dataset = pd.read_excel(original_path, sheet_name=sheet, parse_dates=['Unnamed: 1'])
+                selected_dataset = dataset.filter(
+                    ['AT', 'BE', 'DE', 'DE_50hertz', 'DE_LU', 'DE_amprion', 'DE_tennet', 'HU',
+                     'LU', 'NL', 'Unnamed: 1'])
+                columns = selected_dataset.columns
+                for col in columns:
+                    if col == 'Unnamed: 1':
+                        continue
+                    filter_data = clean_dataset(selected_dataset, col)
+                    plot_data(filter_data, col, sheet)
+                    generate_anomaly_dataset(filter_data, col, sheet)
+                log.warn('Finish 15 min case')
+            case '30min':
+                log.warn('Enter 30 min case')
+                dataset = pd.read_excel(original_path, sheet_name=sheet, parse_dates=['Unnamed: 1'])
+                selected_dataset = dataset.filter(
+                    ['CY', 'GB_GBN', 'GB_UKM', 'IE', 'Unnamed: 1'])
+                columns = selected_dataset.columns
+                for col in columns:
+                    if col == 'Unnamed: 1':
+                        continue
+                    filter_data = clean_dataset(selected_dataset, col)
+                    plot_data(filter_data, col, sheet)
+                    generate_anomaly_dataset(filter_data, col, sheet)
+                log.warn('Finish 30 min case')
+            case '60min':
+                log.warn('Enter 60 min case')
+                dataset = pd.read_excel(original_path, sheet_name=sheet, parse_dates=['Unnamed: 1'])
+                selected_dataset = dataset.filter(
+                    ['AT', 'BE', 'DE', 'DE_50hertz', 'DE_LU', 'DE_amprion', 'DE_tennet', 'HU',
+                     'LU', 'NL', 'BG', 'CY', 'GB_GBN', 'GB_UKM', 'IE', 'CH', 'CZ', 'DK', 'DK_1', 'DK_2',
+                     'EE', 'ES', 'FI', 'FR', 'GR', 'HR', 'IE_sem', 'IT', 'LT', 'LV', 'NO', 'NO_1',
+                     'NO_2', 'SK', 'Unnamed: 1'])
+                columns = selected_dataset.columns
+                for col in columns:
+                    if col == 'Unnamed: 1':
+                        continue
+                    filter_data = clean_dataset(selected_dataset, col)
+                    plot_data(filter_data, col, sheet)
+                    generate_anomaly_dataset(filter_data, col, sheet)
+                log.warn('Finish 60 min case')
+
     return
 
 
@@ -48,65 +87,60 @@ def clean_dataset(original_data, col):
     return clean_data
 
 
-def plot_data(data_to_plot, flag_EU: str):
+def plot_data(data_to_plot: pandas.core.frame.DataFrame, flag_EU: str, name_data: str) -> None:
     """
 
+    :param name_data:
     :param data_to_plot:
     :param flag_EU:
     :return:
     """
-    """
-    sns.boxplot(data=data_to_plot[[flag_EU]], y=flag_EU)
-    mpt.show()
-    mpt.close()
-    sns.histplot(data=data_to_plot[flag_EU], kde=True)
-    mpt.show()
-    mpt.close()
-    """
-    log = getLogger('Plot data logger')
-    data_to_plot['Unnamed: 1'] = data_to_plot['Unnamed: 1'].astype('datetime64[ns]')
+    save_path = os.path.join('EDA/Plots', name_data)
+    save_path = os.path.join(save_path, flag_EU)
+    if not os.path.exists(save_path):
+        os.makedirs(save_path)
     fig, ax = mpt.subplots(1, 1, figsize=(10, 8))
-    sns.lineplot(data=data_to_plot, ax=ax)
-    ax.set(xlabel="Time Period",
-           ylabel=f"Load of {flag_EU}",
-           title=f"{flag_EU} Electricity  Consumption \n 2015-2020 ",
-           xlim=[datetime.date(2015, 1, 1), datetime.date(2020, 10, 1)])
-
-    mpt.show()
-
+    sns.boxplot(data=data_to_plot[[flag_EU]], y=flag_EU, ax=ax)
+    ax.set(ylabel=f"Load of {flag_EU}",
+           title=f"{flag_EU} Electricity  Consumption BoxPlot ")
+    fig.savefig(os.path.join(save_path, 'boxplot.png'))
+    mpt.close(fig)
+    fig1, ax1 = mpt.subplots(1, 1, figsize=(10, 8))
+    sns.histplot(data=data_to_plot[flag_EU], kde=True, ax=ax1)
+    ax1.set(title=f"{flag_EU} Electricity  Consumption HistPlot ")
+    fig1.savefig(os.path.join(save_path, 'histplot.png'))
+    mpt.close(fig1)
+    data_to_plot['Unnamed: 1'] = data_to_plot['Unnamed: 1'].astype('datetime64[ns]')
+    fig3, ax3 = mpt.subplots(1, 1, figsize=(10, 8))
+    sns.lineplot(data=data_to_plot, ax=ax3)
+    ax3.set(xlabel="Time Period",
+            ylabel=f"Load of {flag_EU}",
+            title=f"{flag_EU} Electricity  Consumption  LinePlot \n 2015-2020 ",
+            xlim=[datetime.date(2015, 1, 1), datetime.date(2020, 10, 1)])
+    fig3.savefig(os.path.join(save_path, 'lineplot.png'))
+    mpt.close(fig3)
     return
 
 
-def generate_anomaly_dataset(cleaned_data, save_path, col):
+def generate_anomaly_dataset(cleaned_data, col, name):
+    save_path = os.path.join('Train', 'train_data')
+    save_path = os.path.join(save_path, name)
+    if not os.path.exists(save_path):
+        os.makedirs(save_path)
     dict_anomaly = {}
     filt = cleaned_data[col].copy()
     outline_mad = mad(filt)
     outline_iqr = IQR(filt)
     outline_z_score = z_score(filt)
-    # dict_anomaly.update({f'load of {col}': filt.values.tolist()})
+    dict_anomaly.update({f'load of {col}': filt.values.tolist()})
     dict_anomaly.update({f'Mean absolute deviation Anomaly load of {col}': outline_mad.values.tolist()})
-    dict_anomaly.update({f'Interquartile Range Anomaly of {col}': outline_iqr.values.tolist()})
+    dict_anomaly.update({f'Inter-quartile Range Anomaly of {col}': outline_iqr.values.tolist()})
     dict_anomaly.update({f'Z-score Anomaly of {col}': outline_z_score.values.tolist()})
-    if not os.path.exists(save_path):
-        os.makedirs(save_path)
 
-    with open(save_path + '/' + col + 'anomaly.json', 'w') as f:
+    with open(save_path + '/' + col + '_anomaly.json', 'w') as f:
         json.dump(dict_anomaly, f)
+        f.close()
 
-    outline_mad = mad(cleaned_data[col])
-    outline_iqr = IQR(cleaned_data, col)
-    outline_z_score = z_score(cleaned_data[col])
-    dict_anomaly.update({f'load of {col}': cleaned_data.values})
-    dict_anomaly.update({f'Mean absolute deviation Anomaly load of {col}': outline_mad.values})
-    dict_anomaly.update({f'Interquartile Range upper Anomaly of {col}': outline_iqr[0]})
-    dict_anomaly.update({f'Z-score Anomaly of {col}': outline_z_score.values})
-    if os.path.exists(save_path):
-        os.removedirs(save_path)
-    if not os.path.exists(save_path):
-        os.makedirs(save_path)
-
-    with open(save_path + '/' + col + '.json', 'w') as f:
-        json.dump(dict_anomaly, f)
     return
 
 

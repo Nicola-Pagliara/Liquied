@@ -5,6 +5,7 @@ import lightning as L
 import torch
 import torch.nn.functional as F
 
+
 class LTCNet(L.LightningModule):
     def __init__(self, in_features, out_features, n_hidden_layers, n_hidden, lr):
         super().__init__()
