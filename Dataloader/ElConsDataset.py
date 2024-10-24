@@ -1,18 +1,20 @@
+import torch
 from torch.utils.data import Dataset
 
 
 class ElConsDataset(Dataset):
 
-    def __init__(self, dataset, transform):
+    def __init__(self, dataset, timestep, batch):
         self.data = dataset
-        self.transform = transform
+        self.batch = batch
+        self.timestep = timestep
 
     def __len__(self):
         return len(self.data)
 
     def __getitem__(self, idx):
         sample = self.data[idx]
-        if self.transform:
-            sample = self.transform(sample)
+        sample = torch.tensor(sample)# not c
+        sample = sample.reshape([self.batch, self.timestep])
 
-        return sample
+        return sample.type(dtype=torch.LongTensor)
