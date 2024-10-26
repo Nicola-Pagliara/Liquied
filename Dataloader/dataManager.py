@@ -1,3 +1,4 @@
+import numpy
 import pytorch_lightning as L
 import pandas as pd
 import torch
@@ -10,12 +11,13 @@ from Dataloader.ElConsDataset import ElConsDataset
 
 class TSDataset(L.LightningDataModule):
 
-    def __init__(self, batch_size, path_dir):
+    def __init__(self, batch_size, path_dir, timestep):
         super().__init__()
-        self.ecdl_train = []
-        self.ecdl_val = []
+        self.ecdl_train = None
+        self.ecdl_val = None
         self.batch_size = batch_size
         self.path_dir = path_dir
+        self.timestep = timestep
 
     def prepare_data(self) -> None:
         pass
@@ -26,7 +28,8 @@ class TSDataset(L.LightningDataModule):
             dataset = json.load(f)
             f.close()
         dataset = dataset['load of AT']
-        ecdl_full = ElConsDataset(dataset=dataset, batch=self.batch_size, timestep=1)
+        dataset = numpy.asarray(dataset)
+        ecdl_full = ElConsDataset(dataset=dataset, timestep=self.timestep)
         if stage == 'fit':
             self.ecdl_train, self.ecdl_val = random_split(dataset=ecdl_full, lengths=[0.7, 0.3],
                                                           generator=torch.Generator().manual_seed(42))
