@@ -6,12 +6,12 @@ from torch.utils.data import Dataset
 
 class ElConsDataset(Dataset):
 
-    def __init__(self, dataset, timestep=200, window_size=1):
+    def __init__(self, dataset, timestep=200):
         self.data = dataset
         self.timestep = timestep
-        self.window = window_size
         self.mean = numpy.mean(dataset)
         self.std = numpy.std(dataset)
+        self.norm_data = (self.data - self.mean) / (self.std + 1e-8)
 
     def __len__(self):
         return len(self.data) // self.timestep

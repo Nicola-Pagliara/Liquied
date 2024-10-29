@@ -7,6 +7,7 @@ from torch import nn
 import pytorch_lightning as L
 import torch
 import torch.nn.functional as F
+import torchmetrics as metrics
 
 
 class LTCAutoEncoder(L.LightningModule):
@@ -40,7 +41,17 @@ class LTCAutoEncoder(L.LightningModule):
         return loss
 
     def test_step(self, batch, batch_idx):
-        return self.validation_step(batch, batch_idx)
+        x_target = batch
+        decoded_test, _ = self(x_target)
+        mse_test = metrics.regression.MeanSquaredError().to(decoded_test)
+        reconstruction_error = mse_test(decoded_test, x_target)
+        self.log('recon_test_error', reconstruction_error, prog_bar=True)
+        return reconstruction_error
+
+    def predict_step(self, batch, batch_idx, dataloader_idx=0):
+        x = batch
+        decoded, _ = self(x)
+        return decoded
 
     def configure_optimizers(self):
         optimizer = torch.optim.AdamW(self.parameters(), lr=self.lr)
