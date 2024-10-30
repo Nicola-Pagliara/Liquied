@@ -11,7 +11,7 @@ from Dataloader.ElConsDataset import ElConsDataset
 
 class TSDataset(L.LightningDataModule):
 
-    def __init__(self, batch_size, path_dir, timestep):
+    def __init__(self, batch_size, path_dir, timestep, nations):
         super().__init__()
         self.test = None
         self.ecdl_train = None
@@ -20,6 +20,7 @@ class TSDataset(L.LightningDataModule):
         self.batch_size = batch_size
         self.path_dir = path_dir
         self.timestep = timestep
+        self.nation = nations
 
     def prepare_data(self) -> None:
         pass
@@ -31,7 +32,7 @@ class TSDataset(L.LightningDataModule):
             with open(self.path_dir, 'r') as f:
                 dataset = json.load(f)
                 f.close()
-            dataset = dataset['load of AT']
+            dataset = dataset['load of ' + self.nation]
             dataset = numpy.asarray(dataset)
             ecdl_full = ElConsDataset(dataset=dataset, timestep=self.timestep)
             self.ecdl_train, self.ecdl_val = random_split(dataset=ecdl_full, lengths=[0.7, 0.3],
@@ -40,7 +41,7 @@ class TSDataset(L.LightningDataModule):
             with open(self.path_dir, 'r') as f:
                 dataset = json.load(f)
                 f.close()
-            dataset = dataset['load of LU']
+            dataset = dataset['load of ' + self.nation]
             dataset = numpy.asarray(dataset)
             self.test = ElConsDataset(dataset=dataset, timestep=self.timestep)
 
@@ -48,7 +49,7 @@ class TSDataset(L.LightningDataModule):
             with open(self.path_dir, 'r') as f:
                 dataset = json.load(f)
                 f.close()
-            dataset = dataset['load of AT']
+            dataset = dataset['load of ' + self.nation]
             dataset = numpy.asarray(dataset)
             ecdl_pred = ElConsDataset(dataset=dataset, timestep=self.timestep)
             self.predict = ecdl_pred
