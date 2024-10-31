@@ -1,0 +1,27 @@
+2024-10-30 04:34:20,725 INFO    MainThread:24881 [wandb_setup.py:_flush():79] Current SDK version is 0.18.5
+2024-10-30 04:34:20,725 INFO    MainThread:24881 [wandb_setup.py:_flush():79] Configure stats pid to 24881
+2024-10-30 04:34:20,725 INFO    MainThread:24881 [wandb_setup.py:_flush():79] Loading settings from /home/nicola/.config/wandb/settings
+2024-10-30 04:34:20,725 INFO    MainThread:24881 [wandb_setup.py:_flush():79] Loading settings from /home/nicola/Unisa Magistrale/1 Anno/2 semestre/Fondamenti di Machine Learning & Data science/Progetto/Liquied/wandb/settings
+2024-10-30 04:34:20,725 INFO    MainThread:24881 [wandb_setup.py:_flush():79] Loading settings from environment variables: {}
+2024-10-30 04:34:20,725 INFO    MainThread:24881 [wandb_setup.py:_flush():79] Applying setup settings: {'mode': None, '_disable_service': None}
+2024-10-30 04:34:20,725 INFO    MainThread:24881 [wandb_setup.py:_flush():79] Inferring run settings from compute environment: {'program_relpath': 'main.py', 'program_abspath': '/home/nicola/Unisa Magistrale/1 Anno/2 semestre/Fondamenti di Machine Learning & Data science/Progetto/Liquied/main.py', 'program': '/home/nicola/Unisa Magistrale/1 Anno/2 semestre/Fondamenti di Machine Learning & Data science/Progetto/Liquied/main.py'}
+2024-10-30 04:34:20,725 INFO    MainThread:24881 [wandb_setup.py:_flush():79] Applying login settings: {}
+2024-10-30 04:34:20,726 INFO    MainThread:24881 [wandb_init.py:_log_setup():534] Logging user logs to ./wandb/run-20241030_043420-9iuec125/logs/debug.log
+2024-10-30 04:34:20,726 INFO    MainThread:24881 [wandb_init.py:_log_setup():535] Logging internal logs to ./wandb/run-20241030_043420-9iuec125/logs/debug-internal.log
+2024-10-30 04:34:20,726 INFO    MainThread:24881 [wandb_init.py:init():621] calling init triggers
+2024-10-30 04:34:20,726 INFO    MainThread:24881 [wandb_init.py:init():628] wandb.init called with sweep_config: {}
+config: {}
+2024-10-30 04:34:20,726 INFO    MainThread:24881 [wandb_init.py:init():671] starting backend
+2024-10-30 04:34:20,726 INFO    MainThread:24881 [wandb_init.py:init():675] sending inform_init request
+2024-10-30 04:34:20,727 INFO    MainThread:24881 [backend.py:_multiprocessing_setup():104] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2024-10-30 04:34:20,727 INFO    MainThread:24881 [wandb_init.py:init():688] backend started and connected
+2024-10-30 04:34:20,729 INFO    MainThread:24881 [wandb_init.py:init():783] updated telemetry
+2024-10-30 04:34:20,734 INFO    MainThread:24881 [wandb_init.py:init():816] communicating run to backend with 90.0 second timeout
+2024-10-30 04:34:21,551 INFO    MainThread:24881 [wandb_init.py:init():867] starting run threads in backend
+2024-10-30 04:34:21,669 INFO    MainThread:24881 [wandb_run.py:_console_start():2463] atexit reg
+2024-10-30 04:34:21,669 INFO    MainThread:24881 [wandb_run.py:_redirect():2311] redirect: wrap_raw
+2024-10-30 04:34:21,669 INFO    MainThread:24881 [wandb_run.py:_redirect():2376] Wrapping output streams.
+2024-10-30 04:34:21,670 INFO    MainThread:24881 [wandb_run.py:_redirect():2401] Redirects installed.
+2024-10-30 04:34:21,672 INFO    MainThread:24881 [wandb_init.py:init():911] run started, returning control to user process
+2024-10-30 04:34:21,789 INFO    MainThread:24881 [wandb_run.py:_config_callback():1390] config_cb None None {'input_dim': 1, 'encoding_dim': 16, 'lr': 0.001}
+2024-10-30 04:38:13,487 WARNING MsgRouterThr:24881 [router.py:message_loop():77] message_loop has been closed
