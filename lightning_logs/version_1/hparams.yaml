@@ -1,0 +1,3 @@
+encoding_dim: 16
+input_dim: 1
+lr: 0.001
