@@ -1,0 +1,8 @@
+{"time":"2024-10-30T04:23:32.832307176+01:00","level":"INFO","msg":"using version","core version":"0.18.5"}
+{"time":"2024-10-30T04:23:32.832324635+01:00","level":"INFO","msg":"created symlink","path":"wandb/run-20241030_042332-hyre6kki/logs/debug-core.log"}
+{"time":"2024-10-30T04:23:32.939468675+01:00","level":"INFO","msg":"created new stream","id":"hyre6kki"}
+{"time":"2024-10-30T04:23:32.939569476+01:00","level":"INFO","msg":"stream: started","id":"hyre6kki"}
+{"time":"2024-10-30T04:23:32.939777321+01:00","level":"INFO","msg":"sender: started","stream_id":"hyre6kki"}
+{"time":"2024-10-30T04:23:32.939754673+01:00","level":"INFO","msg":"handler: started","stream_id":{"value":"hyre6kki"}}
+{"time":"2024-10-30T04:23:32.939617406+01:00","level":"INFO","msg":"writer: Do: started","stream_id":{"value":"hyre6kki"}}
+{"time":"2024-10-30T04:23:33.607165848+01:00","level":"INFO","msg":"Starting system monitor"}

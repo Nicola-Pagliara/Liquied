@@ -1,0 +1,1183 @@
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+
+  | Name    | Type    | Params | Mode
+--------------------------------------------
+0 | encode  | LTC     | 5.4 K  | train
+1 | decode  | LTCCell | 7.8 K  | train
+2 | outproj | Linear  | 17     | train
+3 | loss_fn | MSELoss | 0      | train
+--------------------------------------------
+10.7 K    Trainable params
+2.6 K     Non-trainable params
+13.3 K    Total params
+0.053     Total estimated model params size (MB)
+9         Modules in train mode
+0         Modules in eval mode
+Epoch 25: 100%|██████████| 45/45 [00:14<00:00,  3.06it/s, v_num=ua1u, train_loss=0.160, val_loss=0.318]
+                                                                        
+Metric val_loss improved. New best score: 0.987
+Metric val_loss improved by 0.432 >= min_delta = 0.0. New best score: 0.555
+Metric val_loss improved by 0.071 >= min_delta = 0.0. New best score: 0.484
+Metric val_loss improved by 0.088 >= min_delta = 0.0. New best score: 0.397
+Metric val_loss improved by 0.023 >= min_delta = 0.0. New best score: 0.373
+Metric val_loss improved by 0.024 >= min_delta = 0.0. New best score: 0.349
+Metric val_loss improved by 0.026 >= min_delta = 0.0. New best score: 0.323
+Metric val_loss improved by 0.005 >= min_delta = 0.0. New best score: 0.318
+Metric val_loss improved by 0.024 >= min_delta = 0.0. New best score: 0.294
+Metric val_loss improved by 0.011 >= min_delta = 0.0. New best score: 0.283
+Metric val_loss improved by 0.008 >= min_delta = 0.0. New best score: 0.275
+Metric val_loss improved by 0.010 >= min_delta = 0.0. New best score: 0.265
+Metric val_loss improved by 0.005 >= min_delta = 0.0. New best score: 0.260
+Metric val_loss improved by 0.008 >= min_delta = 0.0. New best score: 0.251
+Metric val_loss improved by 0.010 >= min_delta = 0.0. New best score: 0.241
+Monitored metric val_loss did not improve in the last 10 records. Best score: 0.241. Signaling Trainer to stop.
+Complete first train
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+HPU available: False, using: 0 HPUs
+Restoring states from the checkpoint path at Models/autoencoder_weights/15min.ckpt
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+
+  | Name    | Type    | Params | Mode
+--------------------------------------------
+0 | encode  | LTC     | 5.4 K  | train
+1 | decode  | LTCCell | 7.8 K  | train
+2 | outproj | Linear  | 17     | train
+3 | loss_fn | MSELoss | 0      | train
+--------------------------------------------
+10.7 K    Trainable params
+2.6 K     Non-trainable params
+13.3 K    Total params
+0.053     Total estimated model params size (MB)
+9         Modules in train mode
+0         Modules in eval mode
+Restored all states from the checkpoint at Models/autoencoder_weights/15min.ckpt
+Epoch 27: 100%|██████████| 45/45 [00:15<00:00,  3.00it/s, v_num=ua1u, train_loss=0.229, val_loss=0.289]
+Monitored metric val_loss did not improve in the last 11 records. Best score: 0.241. Signaling Trainer to stop.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+HPU available: False, using: 0 HPUs
+Restoring states from the checkpoint path at Models/autoencoder_weights/15min.ckpt
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+
+  | Name    | Type    | Params | Mode
+--------------------------------------------
+0 | encode  | LTC     | 5.4 K  | train
+1 | decode  | LTCCell | 7.8 K  | train
+2 | outproj | Linear  | 17     | train
+3 | loss_fn | MSELoss | 0      | train
+--------------------------------------------
+10.7 K    Trainable params
+2.6 K     Non-trainable params
+13.3 K    Total params
+0.053     Total estimated model params size (MB)
+9         Modules in train mode
+0         Modules in eval mode
+Restored all states from the checkpoint at Models/autoencoder_weights/15min.ckpt
+Epoch 28: 100%|██████████| 45/45 [00:14<00:00,  3.19it/s, v_num=ua1u, train_loss=0.234, val_loss=0.308]
+Monitored metric val_loss did not improve in the last 12 records. Best score: 0.241. Signaling Trainer to stop.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+HPU available: False, using: 0 HPUs
+Restoring states from the checkpoint path at Models/autoencoder_weights/15min.ckpt
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+
+  | Name    | Type    | Params | Mode
+--------------------------------------------
+0 | encode  | LTC     | 5.4 K  | train
+1 | decode  | LTCCell | 7.8 K  | train
+2 | outproj | Linear  | 17     | train
+3 | loss_fn | MSELoss | 0      | train
+--------------------------------------------
+10.7 K    Trainable params
+2.6 K     Non-trainable params
+13.3 K    Total params
+0.053     Total estimated model params size (MB)
+9         Modules in train mode
+0         Modules in eval mode
+Restored all states from the checkpoint at Models/autoencoder_weights/15min.ckpt
+Epoch 29: 100%|██████████| 16/16 [00:05<00:00,  3.01it/s, v_num=ua1u, train_loss=0.283, val_loss=0.258]
+Monitored metric val_loss did not improve in the last 13 records. Best score: 0.241. Signaling Trainer to stop.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+HPU available: False, using: 0 HPUs
+Restoring states from the checkpoint path at Models/autoencoder_weights/15min.ckpt
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+
+  | Name    | Type    | Params | Mode
+--------------------------------------------
+0 | encode  | LTC     | 5.4 K  | train
+1 | decode  | LTCCell | 7.8 K  | train
+2 | outproj | Linear  | 17     | train
+3 | loss_fn | MSELoss | 0      | train
+--------------------------------------------
+10.7 K    Trainable params
+2.6 K     Non-trainable params
+13.3 K    Total params
+0.053     Total estimated model params size (MB)
+9         Modules in train mode
+0         Modules in eval mode
+Restored all states from the checkpoint at Models/autoencoder_weights/15min.ckpt
+Epoch 30: 100%|██████████| 45/45 [00:15<00:00,  2.83it/s, v_num=ua1u, train_loss=0.201, val_loss=0.273]
+Monitored metric val_loss did not improve in the last 14 records. Best score: 0.241. Signaling Trainer to stop.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+HPU available: False, using: 0 HPUs
+Restoring states from the checkpoint path at Models/autoencoder_weights/15min.ckpt
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+
+  | Name    | Type    | Params | Mode
+--------------------------------------------
+0 | encode  | LTC     | 5.4 K  | train
+1 | decode  | LTCCell | 7.8 K  | train
+2 | outproj | Linear  | 17     | train
+3 | loss_fn | MSELoss | 0      | train
+--------------------------------------------
+10.7 K    Trainable params
+2.6 K     Non-trainable params
+13.3 K    Total params
+0.053     Total estimated model params size (MB)
+9         Modules in train mode
+0         Modules in eval mode
+Restored all states from the checkpoint at Models/autoencoder_weights/15min.ckpt
+Epoch 31: 100%|██████████| 45/45 [00:13<00:00,  3.29it/s, v_num=ua1u, train_loss=0.248, val_loss=0.268]
+Monitored metric val_loss did not improve in the last 15 records. Best score: 0.241. Signaling Trainer to stop.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+HPU available: False, using: 0 HPUs
+Restoring states from the checkpoint path at Models/autoencoder_weights/15min.ckpt
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+
+  | Name    | Type    | Params | Mode
+--------------------------------------------
+0 | encode  | LTC     | 5.4 K  | train
+1 | decode  | LTCCell | 7.8 K  | train
+2 | outproj | Linear  | 17     | train
+3 | loss_fn | MSELoss | 0      | train
+--------------------------------------------
+10.7 K    Trainable params
+2.6 K     Non-trainable params
+13.3 K    Total params
+0.053     Total estimated model params size (MB)
+9         Modules in train mode
+0         Modules in eval mode
+Restored all states from the checkpoint at Models/autoencoder_weights/15min.ckpt
+Epoch 32: 100%|██████████| 45/45 [00:14<00:00,  3.20it/s, v_num=ua1u, train_loss=0.208, val_loss=0.305]
+Monitored metric val_loss did not improve in the last 16 records. Best score: 0.241. Signaling Trainer to stop.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+HPU available: False, using: 0 HPUs
+Restoring states from the checkpoint path at Models/autoencoder_weights/15min.ckpt
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+
+  | Name    | Type    | Params | Mode
+--------------------------------------------
+0 | encode  | LTC     | 5.4 K  | train
+1 | decode  | LTCCell | 7.8 K  | train
+2 | outproj | Linear  | 17     | train
+3 | loss_fn | MSELoss | 0      | train
+--------------------------------------------
+10.7 K    Trainable params
+2.6 K     Non-trainable params
+13.3 K    Total params
+0.053     Total estimated model params size (MB)
+9         Modules in train mode
+0         Modules in eval mode
+Restored all states from the checkpoint at Models/autoencoder_weights/15min.ckpt
+Epoch 33: 100%|██████████| 44/44 [00:14<00:00,  3.11it/s, v_num=ua1u, train_loss=0.254, val_loss=0.315]
+Monitored metric val_loss did not improve in the last 17 records. Best score: 0.241. Signaling Trainer to stop.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+HPU available: False, using: 0 HPUs
+Restoring states from the checkpoint path at Models/autoencoder_weights/15min.ckpt
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+
+  | Name    | Type    | Params | Mode
+--------------------------------------------
+0 | encode  | LTC     | 5.4 K  | train
+1 | decode  | LTCCell | 7.8 K  | train
+2 | outproj | Linear  | 17     | train
+3 | loss_fn | MSELoss | 0      | train
+--------------------------------------------
+10.7 K    Trainable params
+2.6 K     Non-trainable params
+13.3 K    Total params
+0.053     Total estimated model params size (MB)
+9         Modules in train mode
+0         Modules in eval mode
+Restored all states from the checkpoint at Models/autoencoder_weights/15min.ckpt
+Epoch 34: 100%|██████████| 45/45 [00:13<00:00,  3.22it/s, v_num=ua1u, train_loss=0.355, val_loss=0.345]
+Monitored metric val_loss did not improve in the last 18 records. Best score: 0.241. Signaling Trainer to stop.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+HPU available: False, using: 0 HPUs
+Restoring states from the checkpoint path at Models/autoencoder_weights/15min.ckpt
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+
+  | Name    | Type    | Params | Mode
+--------------------------------------------
+0 | encode  | LTC     | 5.4 K  | train
+1 | decode  | LTCCell | 7.8 K  | train
+2 | outproj | Linear  | 17     | train
+3 | loss_fn | MSELoss | 0      | train
+--------------------------------------------
+10.7 K    Trainable params
+2.6 K     Non-trainable params
+13.3 K    Total params
+0.053     Total estimated model params size (MB)
+9         Modules in train mode
+0         Modules in eval mode
+Restored all states from the checkpoint at Models/autoencoder_weights/15min.ckpt
+Epoch 17: 100%|██████████| 15/15 [00:05<00:00,  2.55it/s, v_num=ua1u, train_loss=0.397, val_loss=0.414]
+Monitored metric val_loss did not improve in the last 19 records. Best score: 0.241. Signaling Trainer to stop.
+Finish train 15 min on  ['AT', 'BE', 'DE', 'DE_50hertz', 'DE_LU', 'DE_amprion', 'DE_tennet', 'HU', 'LU', 'NL'] time series, saved weights on Models/autoencoder_weights/15min.ckpt
+Enter train 30min time series
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+
+  | Name    | Type    | Params | Mode
+--------------------------------------------
+0 | encode  | LTC     | 5.4 K  | train
+1 | decode  | LTCCell | 7.8 K  | train
+2 | outproj | Linear  | 17     | train
+3 | loss_fn | MSELoss | 0      | train
+--------------------------------------------
+10.7 K    Trainable params
+2.6 K     Non-trainable params
+13.3 K    Total params
+0.053     Total estimated model params size (MB)
+9         Modules in train mode
+0         Modules in eval mode
+                                                                      
+Metric val_loss improved. New best score: 0.555
+Metric val_loss improved by 0.033 >= min_delta = 0.0. New best score: 0.523
+Metric val_loss improved by 0.055 >= min_delta = 0.0. New best score: 0.468
+Metric val_loss improved by 0.008 >= min_delta = 0.0. New best score: 0.460
+Metric val_loss improved by 0.016 >= min_delta = 0.0. New best score: 0.444
+Metric val_loss improved by 0.004 >= min_delta = 0.0. New best score: 0.440
+Metric val_loss improved by 0.000 >= min_delta = 0.0. New best score: 0.440
+Metric val_loss improved by 0.001 >= min_delta = 0.0. New best score: 0.438
+Metric val_loss improved by 0.015 >= min_delta = 0.0. New best score: 0.423
+Metric val_loss improved by 0.009 >= min_delta = 0.0. New best score: 0.414
+Metric val_loss improved by 0.002 >= min_delta = 0.0. New best score: 0.412
+Metric val_loss improved by 0.003 >= min_delta = 0.0. New best score: 0.410
+Metric val_loss improved by 0.013 >= min_delta = 0.0. New best score: 0.397
+Metric val_loss improved by 0.001 >= min_delta = 0.0. New best score: 0.396
+Monitored metric val_loss did not improve in the last 10 records. Best score: 0.396. Signaling Trainer to stop.
+Complete first train
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+HPU available: False, using: 0 HPUs
+Restoring states from the checkpoint path at Models/autoencoder_weights/30min.ckpt
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+
+  | Name    | Type    | Params | Mode
+--------------------------------------------
+0 | encode  | LTC     | 5.4 K  | train
+1 | decode  | LTCCell | 7.8 K  | train
+2 | outproj | Linear  | 17     | train
+3 | loss_fn | MSELoss | 0      | train
+--------------------------------------------
+10.7 K    Trainable params
+2.6 K     Non-trainable params
+13.3 K    Total params
+0.053     Total estimated model params size (MB)
+9         Modules in train mode
+0         Modules in eval mode
+Restored all states from the checkpoint at Models/autoencoder_weights/30min.ckpt
+Epoch 34: 100%|██████████| 22/22 [00:08<00:00,  2.69it/s, v_num=ua1u, train_loss=0.502, val_loss=0.522]
+Monitored metric val_loss did not improve in the last 11 records. Best score: 0.396. Signaling Trainer to stop.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+HPU available: False, using: 0 HPUs
+Restoring states from the checkpoint path at Models/autoencoder_weights/30min.ckpt
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+
+  | Name    | Type    | Params | Mode
+--------------------------------------------
+0 | encode  | LTC     | 5.4 K  | train
+1 | decode  | LTCCell | 7.8 K  | train
+2 | outproj | Linear  | 17     | train
+3 | loss_fn | MSELoss | 0      | train
+--------------------------------------------
+10.7 K    Trainable params
+2.6 K     Non-trainable params
+13.3 K    Total params
+0.053     Total estimated model params size (MB)
+9         Modules in train mode
+0         Modules in eval mode
+Restored all states from the checkpoint at Models/autoencoder_weights/30min.ckpt
+Epoch 35: 100%|██████████| 22/22 [00:07<00:00,  2.93it/s, v_num=ua1u, train_loss=0.653, val_loss=0.561]
+Monitored metric val_loss did not improve in the last 12 records. Best score: 0.396. Signaling Trainer to stop.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+HPU available: False, using: 0 HPUs
+Restoring states from the checkpoint path at Models/autoencoder_weights/30min.ckpt
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+
+  | Name    | Type    | Params | Mode
+--------------------------------------------
+0 | encode  | LTC     | 5.4 K  | train
+1 | decode  | LTCCell | 7.8 K  | train
+2 | outproj | Linear  | 17     | train
+3 | loss_fn | MSELoss | 0      | train
+--------------------------------------------
+10.7 K    Trainable params
+2.6 K     Non-trainable params
+13.3 K    Total params
+0.053     Total estimated model params size (MB)
+9         Modules in train mode
+0         Modules in eval mode
+Restored all states from the checkpoint at Models/autoencoder_weights/30min.ckpt
+Epoch 26: 100%|██████████| 12/12 [00:03<00:00,  3.38it/s, v_num=ua1u, train_loss=0.488, val_loss=0.710]
+Monitored metric val_loss did not improve in the last 13 records. Best score: 0.396. Signaling Trainer to stop.
+Finish train 30 min on  ['CY', 'GB_GBN', 'GB_UKM', 'IE'] time series, saved weights on Models/autoencoder_weights/30min.ckpt
+Enter train 60min time series
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+
+  | Name    | Type    | Params | Mode
+--------------------------------------------
+0 | encode  | LTC     | 5.4 K  | train
+1 | decode  | LTCCell | 7.8 K  | train
+2 | outproj | Linear  | 17     | train
+3 | loss_fn | MSELoss | 0      | train
+--------------------------------------------
+10.7 K    Trainable params
+2.6 K     Non-trainable params
+13.3 K    Total params
+0.053     Total estimated model params size (MB)
+9         Modules in train mode
+0         Modules in eval mode
+Epoch 27: 100%|██████████| 12/12 [00:03<00:00,  3.39it/s, v_num=ua1u, train_loss=0.506, val_loss=0.726]
+Metric val_loss improved. New best score: 0.648
+Metric val_loss improved by 0.059 >= min_delta = 0.0. New best score: 0.589
+Metric val_loss improved by 0.005 >= min_delta = 0.0. New best score: 0.583
+Metric val_loss improved by 0.004 >= min_delta = 0.0. New best score: 0.580
+Metric val_loss improved by 0.006 >= min_delta = 0.0. New best score: 0.574
+Metric val_loss improved by 0.001 >= min_delta = 0.0. New best score: 0.573
+Metric val_loss improved by 0.001 >= min_delta = 0.0. New best score: 0.572
+Metric val_loss improved by 0.001 >= min_delta = 0.0. New best score: 0.571
+Monitored metric val_loss did not improve in the last 10 records. Best score: 0.571. Signaling Trainer to stop.
+Complete first train
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+HPU available: False, using: 0 HPUs
+Restoring states from the checkpoint path at Models/autoencoder_weights/60min.ckpt
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+
+  | Name    | Type    | Params | Mode
+--------------------------------------------
+0 | encode  | LTC     | 5.4 K  | train
+1 | decode  | LTCCell | 7.8 K  | train
+2 | outproj | Linear  | 17     | train
+3 | loss_fn | MSELoss | 0      | train
+--------------------------------------------
+10.7 K    Trainable params
+2.6 K     Non-trainable params
+13.3 K    Total params
+0.053     Total estimated model params size (MB)
+9         Modules in train mode
+0         Modules in eval mode
+Restored all states from the checkpoint at Models/autoencoder_weights/60min.ckpt
+Epoch 28: 100%|██████████| 12/12 [00:03<00:00,  3.34it/s, v_num=ua1u, train_loss=0.573, val_loss=0.816]
+Monitored metric val_loss did not improve in the last 11 records. Best score: 0.571. Signaling Trainer to stop.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+HPU available: False, using: 0 HPUs
+Restoring states from the checkpoint path at Models/autoencoder_weights/60min.ckpt
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+
+  | Name    | Type    | Params | Mode
+--------------------------------------------
+0 | encode  | LTC     | 5.4 K  | train
+1 | decode  | LTCCell | 7.8 K  | train
+2 | outproj | Linear  | 17     | train
+3 | loss_fn | MSELoss | 0      | train
+--------------------------------------------
+10.7 K    Trainable params
+2.6 K     Non-trainable params
+13.3 K    Total params
+0.053     Total estimated model params size (MB)
+9         Modules in train mode
+0         Modules in eval mode
+Restored all states from the checkpoint at Models/autoencoder_weights/60min.ckpt
+Epoch 29: 100%|██████████| 12/12 [00:03<00:00,  3.33it/s, v_num=ua1u, train_loss=0.747, val_loss=0.728]
+Monitored metric val_loss did not improve in the last 12 records. Best score: 0.571. Signaling Trainer to stop.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+HPU available: False, using: 0 HPUs
+Restoring states from the checkpoint path at Models/autoencoder_weights/60min.ckpt
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+
+  | Name    | Type    | Params | Mode
+--------------------------------------------
+0 | encode  | LTC     | 5.4 K  | train
+1 | decode  | LTCCell | 7.8 K  | train
+2 | outproj | Linear  | 17     | train
+3 | loss_fn | MSELoss | 0      | train
+--------------------------------------------
+10.7 K    Trainable params
+2.6 K     Non-trainable params
+13.3 K    Total params
+0.053     Total estimated model params size (MB)
+9         Modules in train mode
+0         Modules in eval mode
+Restored all states from the checkpoint at Models/autoencoder_weights/60min.ckpt
+Epoch 30: 100%|██████████| 4/4 [00:01<00:00,  3.04it/s, v_num=ua1u, train_loss=0.805, val_loss=0.840]
+Monitored metric val_loss did not improve in the last 13 records. Best score: 0.571. Signaling Trainer to stop.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+HPU available: False, using: 0 HPUs
+Restoring states from the checkpoint path at Models/autoencoder_weights/60min.ckpt
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+
+  | Name    | Type    | Params | Mode
+--------------------------------------------
+0 | encode  | LTC     | 5.4 K  | train
+1 | decode  | LTCCell | 7.8 K  | train
+2 | outproj | Linear  | 17     | train
+3 | loss_fn | MSELoss | 0      | train
+--------------------------------------------
+10.7 K    Trainable params
+2.6 K     Non-trainable params
+13.3 K    Total params
+0.053     Total estimated model params size (MB)
+9         Modules in train mode
+0         Modules in eval mode
+Restored all states from the checkpoint at Models/autoencoder_weights/60min.ckpt
+Epoch 31: 100%|██████████| 12/12 [00:03<00:00,  3.36it/s, v_num=ua1u, train_loss=0.521, val_loss=0.750]
+Monitored metric val_loss did not improve in the last 14 records. Best score: 0.571. Signaling Trainer to stop.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+HPU available: False, using: 0 HPUs
+Restoring states from the checkpoint path at Models/autoencoder_weights/60min.ckpt
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+
+  | Name    | Type    | Params | Mode
+--------------------------------------------
+0 | encode  | LTC     | 5.4 K  | train
+1 | decode  | LTCCell | 7.8 K  | train
+2 | outproj | Linear  | 17     | train
+3 | loss_fn | MSELoss | 0      | train
+--------------------------------------------
+10.7 K    Trainable params
+2.6 K     Non-trainable params
+13.3 K    Total params
+0.053     Total estimated model params size (MB)
+9         Modules in train mode
+0         Modules in eval mode
+Restored all states from the checkpoint at Models/autoencoder_weights/60min.ckpt
+Epoch 32: 100%|██████████| 12/12 [00:03<00:00,  3.35it/s, v_num=ua1u, train_loss=0.552, val_loss=0.728]
+Monitored metric val_loss did not improve in the last 15 records. Best score: 0.571. Signaling Trainer to stop.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+HPU available: False, using: 0 HPUs
+Restoring states from the checkpoint path at Models/autoencoder_weights/60min.ckpt
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+
+  | Name    | Type    | Params | Mode
+--------------------------------------------
+0 | encode  | LTC     | 5.4 K  | train
+1 | decode  | LTCCell | 7.8 K  | train
+2 | outproj | Linear  | 17     | train
+3 | loss_fn | MSELoss | 0      | train
+--------------------------------------------
+10.7 K    Trainable params
+2.6 K     Non-trainable params
+13.3 K    Total params
+0.053     Total estimated model params size (MB)
+9         Modules in train mode
+0         Modules in eval mode
+Restored all states from the checkpoint at Models/autoencoder_weights/60min.ckpt
+Epoch 33: 100%|██████████| 12/12 [00:04<00:00,  2.91it/s, v_num=ua1u, train_loss=0.512, val_loss=0.790]
+Monitored metric val_loss did not improve in the last 16 records. Best score: 0.571. Signaling Trainer to stop.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+HPU available: False, using: 0 HPUs
+Restoring states from the checkpoint path at Models/autoencoder_weights/60min.ckpt
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+
+  | Name    | Type    | Params | Mode
+--------------------------------------------
+0 | encode  | LTC     | 5.4 K  | train
+1 | decode  | LTCCell | 7.8 K  | train
+2 | outproj | Linear  | 17     | train
+3 | loss_fn | MSELoss | 0      | train
+--------------------------------------------
+10.7 K    Trainable params
+2.6 K     Non-trainable params
+13.3 K    Total params
+0.053     Total estimated model params size (MB)
+9         Modules in train mode
+0         Modules in eval mode
+Restored all states from the checkpoint at Models/autoencoder_weights/60min.ckpt
+Epoch 34: 100%|██████████| 11/11 [00:04<00:00,  2.74it/s, v_num=ua1u, train_loss=0.712, val_loss=0.683]
+Monitored metric val_loss did not improve in the last 17 records. Best score: 0.571. Signaling Trainer to stop.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+HPU available: False, using: 0 HPUs
+Restoring states from the checkpoint path at Models/autoencoder_weights/60min.ckpt
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+
+  | Name    | Type    | Params | Mode
+--------------------------------------------
+0 | encode  | LTC     | 5.4 K  | train
+1 | decode  | LTCCell | 7.8 K  | train
+2 | outproj | Linear  | 17     | train
+3 | loss_fn | MSELoss | 0      | train
+--------------------------------------------
+10.7 K    Trainable params
+2.6 K     Non-trainable params
+13.3 K    Total params
+0.053     Total estimated model params size (MB)
+9         Modules in train mode
+0         Modules in eval mode
+Restored all states from the checkpoint at Models/autoencoder_weights/60min.ckpt
+Epoch 35: 100%|██████████| 12/12 [00:03<00:00,  3.00it/s, v_num=ua1u, train_loss=0.515, val_loss=0.736]
+Monitored metric val_loss did not improve in the last 18 records. Best score: 0.571. Signaling Trainer to stop.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+HPU available: False, using: 0 HPUs
+Restoring states from the checkpoint path at Models/autoencoder_weights/60min.ckpt
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+
+  | Name    | Type    | Params | Mode
+--------------------------------------------
+0 | encode  | LTC     | 5.4 K  | train
+1 | decode  | LTCCell | 7.8 K  | train
+2 | outproj | Linear  | 17     | train
+3 | loss_fn | MSELoss | 0      | train
+--------------------------------------------
+10.7 K    Trainable params
+2.6 K     Non-trainable params
+13.3 K    Total params
+0.053     Total estimated model params size (MB)
+9         Modules in train mode
+0         Modules in eval mode
+Restored all states from the checkpoint at Models/autoencoder_weights/60min.ckpt
+Epoch 50: 100%|██████████| 12/12 [00:03<00:00,  3.34it/s, v_num=ua1u, train_loss=0.571, val_loss=0.518]
+Monitored metric val_loss did not improve in the last 19 records. Best score: 0.571. Signaling Trainer to stop.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+HPU available: False, using: 0 HPUs
+Restoring states from the checkpoint path at Models/autoencoder_weights/60min.ckpt
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+
+  | Name    | Type    | Params | Mode
+--------------------------------------------
+0 | encode  | LTC     | 5.4 K  | train
+1 | decode  | LTCCell | 7.8 K  | train
+2 | outproj | Linear  | 17     | train
+3 | loss_fn | MSELoss | 0      | train
+--------------------------------------------
+10.7 K    Trainable params
+2.6 K     Non-trainable params
+13.3 K    Total params
+0.053     Total estimated model params size (MB)
+9         Modules in train mode
+0         Modules in eval mode
+Restored all states from the checkpoint at Models/autoencoder_weights/60min.ckpt
+                                                                      
+Metric val_loss improved by 0.013 >= min_delta = 0.0. New best score: 0.558
+Metric val_loss improved by 0.017 >= min_delta = 0.0. New best score: 0.541
+Metric val_loss improved by 0.000 >= min_delta = 0.0. New best score: 0.540
+Metric val_loss improved by 0.011 >= min_delta = 0.0. New best score: 0.529
+Metric val_loss improved by 0.007 >= min_delta = 0.0. New best score: 0.522
+Metric val_loss improved by 0.000 >= min_delta = 0.0. New best score: 0.521
+Metric val_loss improved by 0.001 >= min_delta = 0.0. New best score: 0.520
+Metric val_loss improved by 0.001 >= min_delta = 0.0. New best score: 0.519
+Metric val_loss improved by 0.000 >= min_delta = 0.0. New best score: 0.519
+Metric val_loss improved by 0.001 >= min_delta = 0.0. New best score: 0.518
+Metric val_loss improved by 0.001 >= min_delta = 0.0. New best score: 0.517
+Metric val_loss improved by 0.001 >= min_delta = 0.0. New best score: 0.516
+Metric val_loss improved by 0.000 >= min_delta = 0.0. New best score: 0.516
+Metric val_loss improved by 0.001 >= min_delta = 0.0. New best score: 0.515
+Metric val_loss improved by 0.002 >= min_delta = 0.0. New best score: 0.513
+Metric val_loss improved by 0.002 >= min_delta = 0.0. New best score: 0.511
+Metric val_loss improved by 0.002 >= min_delta = 0.0. New best score: 0.509
+Metric val_loss improved by 0.001 >= min_delta = 0.0. New best score: 0.508
+Metric val_loss improved by 0.001 >= min_delta = 0.0. New best score: 0.507
+Metric val_loss improved by 0.001 >= min_delta = 0.0. New best score: 0.507
+Metric val_loss improved by 0.000 >= min_delta = 0.0. New best score: 0.506
+Metric val_loss improved by 0.001 >= min_delta = 0.0. New best score: 0.506
+Metric val_loss improved by 0.002 >= min_delta = 0.0. New best score: 0.504
+Metric val_loss improved by 0.003 >= min_delta = 0.0. New best score: 0.501
+Metric val_loss improved by 0.001 >= min_delta = 0.0. New best score: 0.500
+Metric val_loss improved by 0.001 >= min_delta = 0.0. New best score: 0.499
+Metric val_loss improved by 0.001 >= min_delta = 0.0. New best score: 0.498
+Metric val_loss improved by 0.001 >= min_delta = 0.0. New best score: 0.497
+Metric val_loss improved by 0.003 >= min_delta = 0.0. New best score: 0.494
+Metric val_loss improved by 0.002 >= min_delta = 0.0. New best score: 0.492
+Metric val_loss improved by 0.003 >= min_delta = 0.0. New best score: 0.489
+Metric val_loss improved by 0.003 >= min_delta = 0.0. New best score: 0.486
+Metric val_loss improved by 0.003 >= min_delta = 0.0. New best score: 0.483
+Metric val_loss improved by 0.003 >= min_delta = 0.0. New best score: 0.479
+Metric val_loss improved by 0.003 >= min_delta = 0.0. New best score: 0.477
+Metric val_loss improved by 0.003 >= min_delta = 0.0. New best score: 0.474
+Metric val_loss improved by 0.002 >= min_delta = 0.0. New best score: 0.472
+Metric val_loss improved by 0.002 >= min_delta = 0.0. New best score: 0.470
+Metric val_loss improved by 0.002 >= min_delta = 0.0. New best score: 0.468
+Metric val_loss improved by 0.002 >= min_delta = 0.0. New best score: 0.466
+Metric val_loss improved by 0.002 >= min_delta = 0.0. New best score: 0.464
+Metric val_loss improved by 0.002 >= min_delta = 0.0. New best score: 0.462
+Metric val_loss improved by 0.003 >= min_delta = 0.0. New best score: 0.459
+Metric val_loss improved by 0.003 >= min_delta = 0.0. New best score: 0.456
+Metric val_loss improved by 0.003 >= min_delta = 0.0. New best score: 0.453
+Metric val_loss improved by 0.002 >= min_delta = 0.0. New best score: 0.451
+Metric val_loss improved by 0.002 >= min_delta = 0.0. New best score: 0.449
+Metric val_loss improved by 0.002 >= min_delta = 0.0. New best score: 0.447
+Metric val_loss improved by 0.004 >= min_delta = 0.0. New best score: 0.443
+Metric val_loss improved by 0.004 >= min_delta = 0.0. New best score: 0.439
+Metric val_loss improved by 0.001 >= min_delta = 0.0. New best score: 0.438
+Metric val_loss improved by 0.001 >= min_delta = 0.0. New best score: 0.436
+Metric val_loss improved by 0.001 >= min_delta = 0.0. New best score: 0.436
+Metric val_loss improved by 0.001 >= min_delta = 0.0. New best score: 0.435
+Metric val_loss improved by 0.001 >= min_delta = 0.0. New best score: 0.434
+Metric val_loss improved by 0.001 >= min_delta = 0.0. New best score: 0.433
+Metric val_loss improved by 0.002 >= min_delta = 0.0. New best score: 0.431
+Metric val_loss improved by 0.001 >= min_delta = 0.0. New best score: 0.431
+Metric val_loss improved by 0.000 >= min_delta = 0.0. New best score: 0.431
+Metric val_loss improved by 0.001 >= min_delta = 0.0. New best score: 0.430
+Metric val_loss improved by 0.001 >= min_delta = 0.0. New best score: 0.429
+Metric val_loss improved by 0.000 >= min_delta = 0.0. New best score: 0.428
+Metric val_loss improved by 0.001 >= min_delta = 0.0. New best score: 0.428
+Metric val_loss improved by 0.000 >= min_delta = 0.0. New best score: 0.428
+Metric val_loss improved by 0.001 >= min_delta = 0.0. New best score: 0.427
+Metric val_loss improved by 0.000 >= min_delta = 0.0. New best score: 0.427
+Metric val_loss improved by 0.000 >= min_delta = 0.0. New best score: 0.427
+Metric val_loss improved by 0.000 >= min_delta = 0.0. New best score: 0.426
+Metric val_loss improved by 0.000 >= min_delta = 0.0. New best score: 0.426
+Metric val_loss improved by 0.000 >= min_delta = 0.0. New best score: 0.426
+Metric val_loss improved by 0.000 >= min_delta = 0.0. New best score: 0.425
+Metric val_loss improved by 0.000 >= min_delta = 0.0. New best score: 0.425
+Metric val_loss improved by 0.000 >= min_delta = 0.0. New best score: 0.425
+Metric val_loss improved by 0.000 >= min_delta = 0.0. New best score: 0.425
+Metric val_loss improved by 0.000 >= min_delta = 0.0. New best score: 0.425
+Metric val_loss improved by 0.000 >= min_delta = 0.0. New best score: 0.424
+Metric val_loss improved by 0.000 >= min_delta = 0.0. New best score: 0.424
+Metric val_loss improved by 0.000 >= min_delta = 0.0. New best score: 0.424
+Metric val_loss improved by 0.000 >= min_delta = 0.0. New best score: 0.424
+Metric val_loss improved by 0.000 >= min_delta = 0.0. New best score: 0.423
+Metric val_loss improved by 0.000 >= min_delta = 0.0. New best score: 0.423
+Metric val_loss improved by 0.000 >= min_delta = 0.0. New best score: 0.423
+Metric val_loss improved by 0.000 >= min_delta = 0.0. New best score: 0.423
+Metric val_loss improved by 0.000 >= min_delta = 0.0. New best score: 0.422
+Metric val_loss improved by 0.000 >= min_delta = 0.0. New best score: 0.422
+Metric val_loss improved by 0.000 >= min_delta = 0.0. New best score: 0.422
+Metric val_loss improved by 0.000 >= min_delta = 0.0. New best score: 0.422
+Metric val_loss improved by 0.000 >= min_delta = 0.0. New best score: 0.422
+Metric val_loss improved by 0.000 >= min_delta = 0.0. New best score: 0.421
+Metric val_loss improved by 0.000 >= min_delta = 0.0. New best score: 0.421
+Metric val_loss improved by 0.000 >= min_delta = 0.0. New best score: 0.421
+Metric val_loss improved by 0.000 >= min_delta = 0.0. New best score: 0.421
+Metric val_loss improved by 0.000 >= min_delta = 0.0. New best score: 0.421
+Metric val_loss improved by 0.000 >= min_delta = 0.0. New best score: 0.421
+Metric val_loss improved by 0.000 >= min_delta = 0.0. New best score: 0.420
+Metric val_loss improved by 0.000 >= min_delta = 0.0. New best score: 0.420
+Metric val_loss improved by 0.000 >= min_delta = 0.0. New best score: 0.420
+Metric val_loss improved by 0.000 >= min_delta = 0.0. New best score: 0.420
+Metric val_loss improved by 0.000 >= min_delta = 0.0. New best score: 0.420
+Metric val_loss improved by 0.000 >= min_delta = 0.0. New best score: 0.420
+Metric val_loss improved by 0.000 >= min_delta = 0.0. New best score: 0.420
+Metric val_loss improved by 0.000 >= min_delta = 0.0. New best score: 0.419
+Metric val_loss improved by 0.000 >= min_delta = 0.0. New best score: 0.419
+Metric val_loss improved by 0.000 >= min_delta = 0.0. New best score: 0.419
+Metric val_loss improved by 0.000 >= min_delta = 0.0. New best score: 0.419
+Metric val_loss improved by 0.000 >= min_delta = 0.0. New best score: 0.419
+Metric val_loss improved by 0.000 >= min_delta = 0.0. New best score: 0.419
+Metric val_loss improved by 0.000 >= min_delta = 0.0. New best score: 0.419
+Metric val_loss improved by 0.000 >= min_delta = 0.0. New best score: 0.419
+Metric val_loss improved by 0.000 >= min_delta = 0.0. New best score: 0.419
+Metric val_loss improved by 0.000 >= min_delta = 0.0. New best score: 0.419
+Metric val_loss improved by 0.000 >= min_delta = 0.0. New best score: 0.419
+Metric val_loss improved by 0.000 >= min_delta = 0.0. New best score: 0.418
+`Trainer.fit` stopped: `max_epochs=200` reached.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+HPU available: False, using: 0 HPUs
+Restoring states from the checkpoint path at Models/autoencoder_weights/60min.ckpt
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+
+  | Name    | Type    | Params | Mode
+--------------------------------------------
+0 | encode  | LTC     | 5.4 K  | train
+1 | decode  | LTCCell | 7.8 K  | train
+2 | outproj | Linear  | 17     | train
+3 | loss_fn | MSELoss | 0      | train
+--------------------------------------------
+10.7 K    Trainable params
+2.6 K     Non-trainable params
+13.3 K    Total params
+0.053     Total estimated model params size (MB)
+9         Modules in train mode
+0         Modules in eval mode
+Restored all states from the checkpoint at Models/autoencoder_weights/60min.ckpt
+`Trainer.fit` stopped: `max_epochs=200` reached.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+HPU available: False, using: 0 HPUs
+Restoring states from the checkpoint path at Models/autoencoder_weights/60min.ckpt
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+
+  | Name    | Type    | Params | Mode
+--------------------------------------------
+0 | encode  | LTC     | 5.4 K  | train
+1 | decode  | LTCCell | 7.8 K  | train
+2 | outproj | Linear  | 17     | train
+3 | loss_fn | MSELoss | 0      | train
+--------------------------------------------
+10.7 K    Trainable params
+2.6 K     Non-trainable params
+13.3 K    Total params
+0.053     Total estimated model params size (MB)
+9         Modules in train mode
+0         Modules in eval mode
+Restored all states from the checkpoint at Models/autoencoder_weights/60min.ckpt
+`Trainer.fit` stopped: `max_epochs=200` reached.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+HPU available: False, using: 0 HPUs
+Restoring states from the checkpoint path at Models/autoencoder_weights/60min.ckpt
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+
+  | Name    | Type    | Params | Mode
+--------------------------------------------
+0 | encode  | LTC     | 5.4 K  | train
+1 | decode  | LTCCell | 7.8 K  | train
+2 | outproj | Linear  | 17     | train
+3 | loss_fn | MSELoss | 0      | train
+--------------------------------------------
+10.7 K    Trainable params
+2.6 K     Non-trainable params
+13.3 K    Total params
+0.053     Total estimated model params size (MB)
+9         Modules in train mode
+0         Modules in eval mode
+Restored all states from the checkpoint at Models/autoencoder_weights/60min.ckpt
+`Trainer.fit` stopped: `max_epochs=200` reached.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+HPU available: False, using: 0 HPUs
+Restoring states from the checkpoint path at Models/autoencoder_weights/60min.ckpt
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+
+  | Name    | Type    | Params | Mode
+--------------------------------------------
+0 | encode  | LTC     | 5.4 K  | train
+1 | decode  | LTCCell | 7.8 K  | train
+2 | outproj | Linear  | 17     | train
+3 | loss_fn | MSELoss | 0      | train
+--------------------------------------------
+10.7 K    Trainable params
+2.6 K     Non-trainable params
+13.3 K    Total params
+0.053     Total estimated model params size (MB)
+9         Modules in train mode
+0         Modules in eval mode
+Restored all states from the checkpoint at Models/autoencoder_weights/60min.ckpt
+`Trainer.fit` stopped: `max_epochs=200` reached.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+HPU available: False, using: 0 HPUs
+Restoring states from the checkpoint path at Models/autoencoder_weights/60min.ckpt
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+
+  | Name    | Type    | Params | Mode
+--------------------------------------------
+0 | encode  | LTC     | 5.4 K  | train
+1 | decode  | LTCCell | 7.8 K  | train
+2 | outproj | Linear  | 17     | train
+3 | loss_fn | MSELoss | 0      | train
+--------------------------------------------
+10.7 K    Trainable params
+2.6 K     Non-trainable params
+13.3 K    Total params
+0.053     Total estimated model params size (MB)
+9         Modules in train mode
+0         Modules in eval mode
+Restored all states from the checkpoint at Models/autoencoder_weights/60min.ckpt
+`Trainer.fit` stopped: `max_epochs=200` reached.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+HPU available: False, using: 0 HPUs
+Restoring states from the checkpoint path at Models/autoencoder_weights/60min.ckpt
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+
+  | Name    | Type    | Params | Mode
+--------------------------------------------
+0 | encode  | LTC     | 5.4 K  | train
+1 | decode  | LTCCell | 7.8 K  | train
+2 | outproj | Linear  | 17     | train
+3 | loss_fn | MSELoss | 0      | train
+--------------------------------------------
+10.7 K    Trainable params
+2.6 K     Non-trainable params
+13.3 K    Total params
+0.053     Total estimated model params size (MB)
+9         Modules in train mode
+0         Modules in eval mode
+Restored all states from the checkpoint at Models/autoencoder_weights/60min.ckpt
+`Trainer.fit` stopped: `max_epochs=200` reached.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+HPU available: False, using: 0 HPUs
+Restoring states from the checkpoint path at Models/autoencoder_weights/60min.ckpt
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+
+  | Name    | Type    | Params | Mode
+--------------------------------------------
+0 | encode  | LTC     | 5.4 K  | train
+1 | decode  | LTCCell | 7.8 K  | train
+2 | outproj | Linear  | 17     | train
+3 | loss_fn | MSELoss | 0      | train
+--------------------------------------------
+10.7 K    Trainable params
+2.6 K     Non-trainable params
+13.3 K    Total params
+0.053     Total estimated model params size (MB)
+9         Modules in train mode
+0         Modules in eval mode
+Restored all states from the checkpoint at Models/autoencoder_weights/60min.ckpt
+`Trainer.fit` stopped: `max_epochs=200` reached.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+HPU available: False, using: 0 HPUs
+Restoring states from the checkpoint path at Models/autoencoder_weights/60min.ckpt
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+
+  | Name    | Type    | Params | Mode
+--------------------------------------------
+0 | encode  | LTC     | 5.4 K  | train
+1 | decode  | LTCCell | 7.8 K  | train
+2 | outproj | Linear  | 17     | train
+3 | loss_fn | MSELoss | 0      | train
+--------------------------------------------
+10.7 K    Trainable params
+2.6 K     Non-trainable params
+13.3 K    Total params
+0.053     Total estimated model params size (MB)
+9         Modules in train mode
+0         Modules in eval mode
+Restored all states from the checkpoint at Models/autoencoder_weights/60min.ckpt
+`Trainer.fit` stopped: `max_epochs=200` reached.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+HPU available: False, using: 0 HPUs
+Restoring states from the checkpoint path at Models/autoencoder_weights/60min.ckpt
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+
+  | Name    | Type    | Params | Mode
+--------------------------------------------
+0 | encode  | LTC     | 5.4 K  | train
+1 | decode  | LTCCell | 7.8 K  | train
+2 | outproj | Linear  | 17     | train
+3 | loss_fn | MSELoss | 0      | train
+--------------------------------------------
+10.7 K    Trainable params
+2.6 K     Non-trainable params
+13.3 K    Total params
+0.053     Total estimated model params size (MB)
+9         Modules in train mode
+0         Modules in eval mode
+Restored all states from the checkpoint at Models/autoencoder_weights/60min.ckpt
+`Trainer.fit` stopped: `max_epochs=200` reached.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+HPU available: False, using: 0 HPUs
+Restoring states from the checkpoint path at Models/autoencoder_weights/60min.ckpt
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+
+  | Name    | Type    | Params | Mode
+--------------------------------------------
+0 | encode  | LTC     | 5.4 K  | train
+1 | decode  | LTCCell | 7.8 K  | train
+2 | outproj | Linear  | 17     | train
+3 | loss_fn | MSELoss | 0      | train
+--------------------------------------------
+10.7 K    Trainable params
+2.6 K     Non-trainable params
+13.3 K    Total params
+0.053     Total estimated model params size (MB)
+9         Modules in train mode
+0         Modules in eval mode
+Restored all states from the checkpoint at Models/autoencoder_weights/60min.ckpt
+`Trainer.fit` stopped: `max_epochs=200` reached.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+HPU available: False, using: 0 HPUs
+Restoring states from the checkpoint path at Models/autoencoder_weights/60min.ckpt
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+
+  | Name    | Type    | Params | Mode
+--------------------------------------------
+0 | encode  | LTC     | 5.4 K  | train
+1 | decode  | LTCCell | 7.8 K  | train
+2 | outproj | Linear  | 17     | train
+3 | loss_fn | MSELoss | 0      | train
+--------------------------------------------
+10.7 K    Trainable params
+2.6 K     Non-trainable params
+13.3 K    Total params
+0.053     Total estimated model params size (MB)
+9         Modules in train mode
+0         Modules in eval mode
+Restored all states from the checkpoint at Models/autoencoder_weights/60min.ckpt
+`Trainer.fit` stopped: `max_epochs=200` reached.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+HPU available: False, using: 0 HPUs
+Restoring states from the checkpoint path at Models/autoencoder_weights/60min.ckpt
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+
+  | Name    | Type    | Params | Mode
+--------------------------------------------
+0 | encode  | LTC     | 5.4 K  | train
+1 | decode  | LTCCell | 7.8 K  | train
+2 | outproj | Linear  | 17     | train
+3 | loss_fn | MSELoss | 0      | train
+--------------------------------------------
+10.7 K    Trainable params
+2.6 K     Non-trainable params
+13.3 K    Total params
+0.053     Total estimated model params size (MB)
+9         Modules in train mode
+0         Modules in eval mode
+Restored all states from the checkpoint at Models/autoencoder_weights/60min.ckpt
+`Trainer.fit` stopped: `max_epochs=200` reached.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+HPU available: False, using: 0 HPUs
+Restoring states from the checkpoint path at Models/autoencoder_weights/60min.ckpt
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+
+  | Name    | Type    | Params | Mode
+--------------------------------------------
+0 | encode  | LTC     | 5.4 K  | train
+1 | decode  | LTCCell | 7.8 K  | train
+2 | outproj | Linear  | 17     | train
+3 | loss_fn | MSELoss | 0      | train
+--------------------------------------------
+10.7 K    Trainable params
+2.6 K     Non-trainable params
+13.3 K    Total params
+0.053     Total estimated model params size (MB)
+9         Modules in train mode
+0         Modules in eval mode
+Restored all states from the checkpoint at Models/autoencoder_weights/60min.ckpt
+`Trainer.fit` stopped: `max_epochs=200` reached.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+HPU available: False, using: 0 HPUs
+Restoring states from the checkpoint path at Models/autoencoder_weights/60min.ckpt
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+
+  | Name    | Type    | Params | Mode
+--------------------------------------------
+0 | encode  | LTC     | 5.4 K  | train
+1 | decode  | LTCCell | 7.8 K  | train
+2 | outproj | Linear  | 17     | train
+3 | loss_fn | MSELoss | 0      | train
+--------------------------------------------
+10.7 K    Trainable params
+2.6 K     Non-trainable params
+13.3 K    Total params
+0.053     Total estimated model params size (MB)
+9         Modules in train mode
+0         Modules in eval mode
+Restored all states from the checkpoint at Models/autoencoder_weights/60min.ckpt
+`Trainer.fit` stopped: `max_epochs=200` reached.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+HPU available: False, using: 0 HPUs
+Restoring states from the checkpoint path at Models/autoencoder_weights/60min.ckpt
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+
+  | Name    | Type    | Params | Mode
+--------------------------------------------
+0 | encode  | LTC     | 5.4 K  | train
+1 | decode  | LTCCell | 7.8 K  | train
+2 | outproj | Linear  | 17     | train
+3 | loss_fn | MSELoss | 0      | train
+--------------------------------------------
+10.7 K    Trainable params
+2.6 K     Non-trainable params
+13.3 K    Total params
+0.053     Total estimated model params size (MB)
+9         Modules in train mode
+0         Modules in eval mode
+Restored all states from the checkpoint at Models/autoencoder_weights/60min.ckpt
+`Trainer.fit` stopped: `max_epochs=200` reached.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+HPU available: False, using: 0 HPUs
+Restoring states from the checkpoint path at Models/autoencoder_weights/60min.ckpt
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+
+  | Name    | Type    | Params | Mode
+--------------------------------------------
+0 | encode  | LTC     | 5.4 K  | train
+1 | decode  | LTCCell | 7.8 K  | train
+2 | outproj | Linear  | 17     | train
+3 | loss_fn | MSELoss | 0      | train
+--------------------------------------------
+10.7 K    Trainable params
+2.6 K     Non-trainable params
+13.3 K    Total params
+0.053     Total estimated model params size (MB)
+9         Modules in train mode
+0         Modules in eval mode
+Restored all states from the checkpoint at Models/autoencoder_weights/60min.ckpt
+`Trainer.fit` stopped: `max_epochs=200` reached.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+HPU available: False, using: 0 HPUs
+Restoring states from the checkpoint path at Models/autoencoder_weights/60min.ckpt
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+
+  | Name    | Type    | Params | Mode
+--------------------------------------------
+0 | encode  | LTC     | 5.4 K  | train
+1 | decode  | LTCCell | 7.8 K  | train
+2 | outproj | Linear  | 17     | train
+3 | loss_fn | MSELoss | 0      | train
+--------------------------------------------
+10.7 K    Trainable params
+2.6 K     Non-trainable params
+13.3 K    Total params
+0.053     Total estimated model params size (MB)
+9         Modules in train mode
+0         Modules in eval mode
+Restored all states from the checkpoint at Models/autoencoder_weights/60min.ckpt
+`Trainer.fit` stopped: `max_epochs=200` reached.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+HPU available: False, using: 0 HPUs
+Restoring states from the checkpoint path at Models/autoencoder_weights/60min.ckpt
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+
+  | Name    | Type    | Params | Mode
+--------------------------------------------
+0 | encode  | LTC     | 5.4 K  | train
+1 | decode  | LTCCell | 7.8 K  | train
+2 | outproj | Linear  | 17     | train
+3 | loss_fn | MSELoss | 0      | train
+--------------------------------------------
+10.7 K    Trainable params
+2.6 K     Non-trainable params
+13.3 K    Total params
+0.053     Total estimated model params size (MB)
+9         Modules in train mode
+0         Modules in eval mode
+Restored all states from the checkpoint at Models/autoencoder_weights/60min.ckpt
+`Trainer.fit` stopped: `max_epochs=200` reached.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+HPU available: False, using: 0 HPUs
+Restoring states from the checkpoint path at Models/autoencoder_weights/60min.ckpt
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+
+  | Name    | Type    | Params | Mode
+--------------------------------------------
+0 | encode  | LTC     | 5.4 K  | train
+1 | decode  | LTCCell | 7.8 K  | train
+2 | outproj | Linear  | 17     | train
+3 | loss_fn | MSELoss | 0      | train
+--------------------------------------------
+10.7 K    Trainable params
+2.6 K     Non-trainable params
+13.3 K    Total params
+0.053     Total estimated model params size (MB)
+9         Modules in train mode
+0         Modules in eval mode
+Restored all states from the checkpoint at Models/autoencoder_weights/60min.ckpt
+`Trainer.fit` stopped: `max_epochs=200` reached.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+HPU available: False, using: 0 HPUs
+Restoring states from the checkpoint path at Models/autoencoder_weights/60min.ckpt
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+
+  | Name    | Type    | Params | Mode
+--------------------------------------------
+0 | encode  | LTC     | 5.4 K  | train
+1 | decode  | LTCCell | 7.8 K  | train
+2 | outproj | Linear  | 17     | train
+3 | loss_fn | MSELoss | 0      | train
+--------------------------------------------
+10.7 K    Trainable params
+2.6 K     Non-trainable params
+13.3 K    Total params
+0.053     Total estimated model params size (MB)
+9         Modules in train mode
+0         Modules in eval mode
+Restored all states from the checkpoint at Models/autoencoder_weights/60min.ckpt
+`Trainer.fit` stopped: `max_epochs=200` reached.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+HPU available: False, using: 0 HPUs
+Restoring states from the checkpoint path at Models/autoencoder_weights/60min.ckpt
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+
+  | Name    | Type    | Params | Mode
+--------------------------------------------
+0 | encode  | LTC     | 5.4 K  | train
+1 | decode  | LTCCell | 7.8 K  | train
+2 | outproj | Linear  | 17     | train
+3 | loss_fn | MSELoss | 0      | train
+--------------------------------------------
+10.7 K    Trainable params
+2.6 K     Non-trainable params
+13.3 K    Total params
+0.053     Total estimated model params size (MB)
+9         Modules in train mode
+0         Modules in eval mode
+Restored all states from the checkpoint at Models/autoencoder_weights/60min.ckpt
+`Trainer.fit` stopped: `max_epochs=200` reached.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+HPU available: False, using: 0 HPUs
+Restoring states from the checkpoint path at Models/autoencoder_weights/60min.ckpt
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+
+  | Name    | Type    | Params | Mode
+--------------------------------------------
+0 | encode  | LTC     | 5.4 K  | train
+1 | decode  | LTCCell | 7.8 K  | train
+2 | outproj | Linear  | 17     | train
+3 | loss_fn | MSELoss | 0      | train
+--------------------------------------------
+10.7 K    Trainable params
+2.6 K     Non-trainable params
+13.3 K    Total params
+0.053     Total estimated model params size (MB)
+9         Modules in train mode
+0         Modules in eval mode
+Restored all states from the checkpoint at Models/autoencoder_weights/60min.ckpt
+`Trainer.fit` stopped: `max_epochs=200` reached.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+HPU available: False, using: 0 HPUs
+Restoring states from the checkpoint path at Models/autoencoder_weights/60min.ckpt
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+
+  | Name    | Type    | Params | Mode
+--------------------------------------------
+0 | encode  | LTC     | 5.4 K  | train
+1 | decode  | LTCCell | 7.8 K  | train
+2 | outproj | Linear  | 17     | train
+3 | loss_fn | MSELoss | 0      | train
+--------------------------------------------
+10.7 K    Trainable params
+2.6 K     Non-trainable params
+13.3 K    Total params
+0.053     Total estimated model params size (MB)
+9         Modules in train mode
+0         Modules in eval mode
+Restored all states from the checkpoint at Models/autoencoder_weights/60min.ckpt
+`Trainer.fit` stopped: `max_epochs=200` reached.
+Finish train 60 min on  ['AT', 'BE', 'DE', 'DE_50hertz', 'DE_LU', 'DE_amprion', 'DE_tennet', 'HU', 'LU', 'NL', 'BG', 'CY', 'GB_GBN', 'GB_UKM', 'IE', 'CH', 'CZ', 'DK', 'DK_1', 'DK_2', 'EE', 'ES', 'FI', 'FR', 'GR', 'HR', 'IE_sem', 'IT', 'LT', 'LV', 'NO', 'NO_1', 'NO_2', 'SK'] time series, saved weights on Models/autoencoder_weights/60min.ckpt

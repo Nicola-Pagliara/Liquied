@@ -1,0 +1,7 @@
+ # ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))
+    # ax.set_xticklabels(labels=data_to_plot['Unnamed: 1'], rotation=45, ha='right')
+    # mpt.gca().xaxis.set_major_formatter(mpt_date.DateFormatter('%Y-%m-%d'))
+    # ax.set_xticklabels(labels=format_date, rotation=45, ha='right')
+
+     # threshold = 3
+    # threshold_2 = anomaly.mean() + 2 * anomaly.std()

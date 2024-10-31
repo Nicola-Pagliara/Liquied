@@ -8,6 +8,7 @@ import pytorch_lightning as L
 import torch
 import torch.nn.functional as F
 import torchmetrics as metrics
+import math
 
 
 class LTCAutoEncoder(L.LightningModule):
@@ -44,9 +45,17 @@ class LTCAutoEncoder(L.LightningModule):
         x_target = batch
         decoded_test, _ = self(x_target)
         mse_test = metrics.regression.MeanSquaredError().to(decoded_test)
+        mae_test = metrics.regression.MeanAbsoluteError().to(decoded_test)
         reconstruction_error = mse_test(decoded_test, x_target)
-        self.log('recon_test_error', reconstruction_error, prog_bar=True)
-        return reconstruction_error
+        mae_red_error = mae_test(decoded_test, x_target)
+        rmse_test = math.sqrt(reconstruction_error)
+        std = numpy.asarray(x_target).std()
+        norm_rmse = rmse_test / std
+        self.log('MSE test', reconstruction_error, prog_bar=True)
+        self.log('RMSE test', rmse_test, prog_bar=True)
+        self.log('MAE test', mae_red_error, prog_bar=True)
+        self.log('NRMSE std test', norm_rmse, prog_bar=True)
+        return reconstruction_error, mae_test, rmse_test, norm_rmse
 
     def predict_step(self, batch, batch_idx, dataloader_idx=0):
         x = batch
