@@ -136,7 +136,8 @@ def plot_anomaly(anomaly_model, nations, name_sheet):
     sns.scatterplot(data=anomalies, palette=['#FF0000'], ax=ax3)
     ax3.set(xlabel="Time Period",
             ylabel=f"Load of {nations}",
-            title=f"{nations} Electricity  Consumption  LinePlot with Anomalies \n 2015-2020 ")
+            title=f"{nations} Electricity  Consumption  LinePlot with Anomalies \n 2015-2020 ",
+            xlim=[datetime.date(2015, 1, 1), datetime.date(2020, 10, 1)])
     mpt.legend(labels=[f' load of {nations}', f'{nations} Anomalies'])
     fig3.savefig(os.path.join(final_path, nations + '_model_anomaly_plot.png'))
 
@@ -145,7 +146,8 @@ def plot_anomaly(anomaly_model, nations, name_sheet):
     sns.scatterplot(data=anomalies_m, palette=['#FF0000'], ax=ax4)
     ax4.set(xlabel="Time Period",
             ylabel=f"Load of {nations}",
-            title=f"{nations} Electricity  Consumption  LinePlot with Anomalies \n 2015-2020 ")
+            title=f"{nations} Electricity  Consumption  LinePlot with Anomalies \n 2015-2020",
+            xlim=[datetime.date(2015, 1, 1), datetime.date(2020, 10, 1)])
     mpt.legend(labels=[f' load of {nations}', f'{nations} Anomalies'])
     fig4.savefig(os.path.join(final_path, nations + '_mad_anomaly_plot.png'))
 
@@ -154,7 +156,8 @@ def plot_anomaly(anomaly_model, nations, name_sheet):
     sns.scatterplot(data=anomalies_i, palette=['#FF0000'], ax=ax5)
     ax5.set(xlabel="Time Period",
             ylabel=f"Load of {nations}",
-            title=f"{nations} Electricity  Consumption  LinePlot with Anomalies \n 2015-2020 ")
+            title=f"{nations} Electricity  Consumption  LinePlot with Anomalies \n 2015-2020 ",
+            xlim=[datetime.date(2015, 1, 1), datetime.date(2020, 10, 1)])
     mpt.legend(labels=[f' load of {nations}', f'{nations} Anomalies'])
     fig5.savefig(os.path.join(final_path, nations + '_iqr_anomaly_plot.png'))
 
@@ -163,8 +166,15 @@ def plot_anomaly(anomaly_model, nations, name_sheet):
     sns.scatterplot(data=anomalies_zs, palette=['#FF0000'], ax=ax6)
     ax3.set(xlabel="Time Period",
             ylabel=f"Load of {nations}",
-            title=f"{nations} Electricity  Consumption  LinePlot with Anomalies \n 2015-2020 ")
+            title=f"{nations} Electricity  Consumption  LinePlot with Anomalies \n 2015-2020 ",
+            xlim=[datetime.date(2015, 1, 1), datetime.date(2020, 10, 1)])
     mpt.legend(labels=[f' load of {nations}', f'{nations} Anomalies'])
     fig6.savefig(os.path.join(final_path, nations + '_zscore_anomaly_plot.png'))
 
+    return
+
+
+def test_phase():
+    test_case()
+    extract_model_anomalies()
     return
