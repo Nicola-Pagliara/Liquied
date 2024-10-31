@@ -1,8 +1,0 @@
-{"time":"2024-10-30T05:06:17.603781554+01:00","level":"INFO","msg":"using version","core version":"0.18.5"}
-{"time":"2024-10-30T05:06:17.60382596+01:00","level":"INFO","msg":"created symlink","path":"wandb/run-20241030_050617-pjd6b2gg/logs/debug-core.log"}
-{"time":"2024-10-30T05:06:17.719349485+01:00","level":"INFO","msg":"created new stream","id":"pjd6b2gg"}
-{"time":"2024-10-30T05:06:17.719421467+01:00","level":"INFO","msg":"stream: started","id":"pjd6b2gg"}
-{"time":"2024-10-30T05:06:17.719534344+01:00","level":"INFO","msg":"sender: started","stream_id":"pjd6b2gg"}
-{"time":"2024-10-30T05:06:17.719446901+01:00","level":"INFO","msg":"writer: Do: started","stream_id":{"value":"pjd6b2gg"}}
-{"time":"2024-10-30T05:06:17.719467794+01:00","level":"INFO","msg":"handler: started","stream_id":{"value":"pjd6b2gg"}}
-{"time":"2024-10-30T05:06:18.442445585+01:00","level":"INFO","msg":"Starting system monitor"}
