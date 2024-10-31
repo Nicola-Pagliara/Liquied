@@ -1,5 +1,9 @@
 import os
 
+
+# DATA AND EDA CONSTANTS
+ORIGINAL_DATA = os.path.join('Dataset', 'time_series.xlsx')
+SHEET_NAME = ['15min', '30min', '60min']
 # TRAIN CONSTANTS
 TIME_INTERVAL = ['15min', '30min', '60min']
 MIN_15 = ['AT', 'BE', 'DE', 'DE_50hertz', 'DE_LU', 'DE_amprion', 'DE_tennet', 'HU', 'LU', 'NL']
@@ -13,3 +17,5 @@ TRAIN_15 = os.path.join(TRAIN_PATH, '15min')
 TRAIN_30 = os.path.join(TRAIN_PATH, '30min')
 TRAIN_60 = os.path.join(TRAIN_PATH, '60min')
 WEIGHTS_PATH = os.path.join('Models', 'autoencoder_weights')
+# EVAL CONSTANTS
+SAVE_FIG_EVAL = os.path.join('Evaluation', 'Plots')

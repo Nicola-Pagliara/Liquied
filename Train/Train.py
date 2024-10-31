@@ -20,7 +20,7 @@ def train():
                                   logger=WandbLogger(name='Liquied', log_model=False),
                                   callbacks=[ModelCheckpoint(dirpath=const.WEIGHTS_PATH,
                                                              filename='15min'),
-                                             EarlyStopping(monitor='val_loss', mode='min', patience=10)],
+                                             EarlyStopping(monitor='val_loss', mode='min',  min_delta=0.1)],
                                   enable_checkpointing=True)
 
                 for nations in const.MIN_15:
@@ -32,11 +32,11 @@ def train():
                         count_trained = False
                         log.warn('Complete first train')
                     else:
-                        trainer = Trainer(accelerator='cuda', max_epochs=200,
+                        trainer = Trainer(accelerator='cuda', max_epochs=450,
                                           logger=WandbLogger(name='Liquied', log_model=False),
                                           callbacks=[ModelCheckpoint(dirpath=const.WEIGHTS_PATH,
                                                                      filename='15min'),
-                                                     EarlyStopping(monitor='val_loss', mode='min', patience=30)],
+                                                     EarlyStopping(monitor='val_loss', mode='min', min_delta=0.1)],
                                           enable_checkpointing=True)
                         dataset = TSDataset(batch_size=128,
                                             path_dir=os.path.join(const.TRAIN_15, nations +
@@ -54,7 +54,7 @@ def train():
                                   logger=WandbLogger(name='Liquied', log_model=False),
                                   callbacks=[ModelCheckpoint(dirpath=const.WEIGHTS_PATH,
                                                              filename='30min'),
-                                             EarlyStopping(monitor='val_loss', mode='min', patience=10)],
+                                             EarlyStopping(monitor='val_loss', mode='min', min_delta=0.1)],
                                   enable_checkpointing=True)
 
                 for nations in const.MIN_30:
@@ -69,12 +69,11 @@ def train():
                         log.warn('Complete first train')
 
                     else:
-                        trainer = Trainer(accelerator='cuda', max_epochs=200,
+                        trainer = Trainer(accelerator='cuda', max_epochs=450,
                                           logger=WandbLogger(name='Liquied', log_model=False),
                                           callbacks=[ModelCheckpoint(dirpath=const.WEIGHTS_PATH,
                                                                      filename='30min'),
-                                                     EarlyStopping(monitor='val_loss', mode='min', patience=30,
-                                                                   verbose=True)],
+                                                     EarlyStopping(monitor='val_loss', mode='min', min_delta=0.1)],
                                           enable_checkpointing=True)
                         dataset = TSDataset(batch_size=128,
                                             path_dir=os.path.join(const.TRAIN_30, nations +
@@ -88,11 +87,11 @@ def train():
             case '60min':
                 log.warn('Enter train 60min time series')
                 count_trained = True
-                trainer = Trainer(accelerator='cuda', max_epochs=100,
+                trainer = Trainer(accelerator='cuda', max_epochs=450,
                                   logger=WandbLogger(name='Liquied', log_model=False),
                                   callbacks=[ModelCheckpoint(dirpath=const.WEIGHTS_PATH,
                                                              filename='60min'),
-                                             EarlyStopping(monitor='val_loss', mode='min', patience=20)],
+                                             EarlyStopping(monitor='val_loss', mode='min', min_delta=0.1)],
                                   enable_checkpointing=True)
 
                 for nations in const.MIN_60:
@@ -106,12 +105,11 @@ def train():
                         count_trained = False
                         log.warn('Complete first train')
                     else:
-                        trainer = Trainer(accelerator='cuda', max_epochs=200,
+                        trainer = Trainer(accelerator='cuda', max_epochs=450,
                                           logger=WandbLogger(name='Liquied', log_model=False),
                                           callbacks=[ModelCheckpoint(dirpath=const.WEIGHTS_PATH,
                                                                      filename='60min'),
-                                                     EarlyStopping(monitor='val_loss', mode='min', patience=30,
-                                                                   verbose=True)],
+                                                     EarlyStopping(monitor='val_loss', mode='min', min_delta=0.1)],
                                           enable_checkpointing=True)
                         dataset = TSDataset(batch_size=128,
                                             path_dir=os.path.join(const.TRAIN_60, nations +

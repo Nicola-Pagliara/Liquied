@@ -6,10 +6,10 @@ from Evaluation import Eval as eval
 
 
 def main():
-    trn.train()
+    # trn.train()
     # eda.overview_analysis(original_path='Dataset/time_series.xlsx', name_data=['15min', '30min', '60min'])
-    # eval.test_case('Models/autoencoder_weights/epoch=99-step=4500.ckpt')
-    # eval.extract_model_anomalies('Models/autoencoder_weights/epoch=99-step=4500.ckpt')
+    # eval.test_case()
+    eval.extract_model_anomalies()
 
 
 if __name__ == '__main__':
