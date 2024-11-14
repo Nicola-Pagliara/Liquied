@@ -7,6 +7,7 @@ import matplotlib.pyplot as mpt
 import pandas as pd
 import numpy as np
 import json
+from utils import Constant as const
 from matplotlib.dates import DateFormatter
 import matplotlib.dates as mdates
 
@@ -18,7 +19,7 @@ Evaluate OOP paradigm class EDA
 """
 
 
-def overview_analysis(original_path: str, name_data: list[str]):
+def overview_analysis():
     """
     This method do a complete overview of times series integrate the following steps:
     1) Extract data
@@ -32,11 +33,11 @@ def overview_analysis(original_path: str, name_data: list[str]):
     :return: path where the preprocessed dataset it's store.
     """
     log = getLogger('EDA Log')
-    for sheet in name_data:
+    for sheet in const.TIME_INTERVAL :
         match sheet:
             case '15min':
                 log.warn('Enter 15 min case')
-                dataset = pd.read_excel(original_path, sheet_name=sheet, parse_dates=['Unnamed: 1'])
+                dataset = pd.read_excel(const.ORIGINAL_DATA, sheet_name=sheet, parse_dates=['Unnamed: 1'])
                 selected_dataset = dataset.filter(
                     ['AT', 'BE', 'DE', 'DE_50hertz', 'DE_LU', 'DE_amprion', 'DE_tennet', 'HU',
                      'LU', 'NL', 'Unnamed: 1'])
@@ -50,7 +51,7 @@ def overview_analysis(original_path: str, name_data: list[str]):
                 log.warn('Finish 15 min case')
             case '30min':
                 log.warn('Enter 30 min case')
-                dataset = pd.read_excel(original_path, sheet_name=sheet, parse_dates=['Unnamed: 1'])
+                dataset = pd.read_excel(const.ORIGINAL_DATA, sheet_name=sheet, parse_dates=['Unnamed: 1'])
                 selected_dataset = dataset.filter(
                     ['CY', 'GB_GBN', 'GB_UKM', 'IE', 'Unnamed: 1'])
                 columns = selected_dataset.columns
@@ -63,7 +64,7 @@ def overview_analysis(original_path: str, name_data: list[str]):
                 log.warn('Finish 30 min case')
             case '60min':
                 log.warn('Enter 60 min case')
-                dataset = pd.read_excel(original_path, sheet_name=sheet, parse_dates=['Unnamed: 1'])
+                dataset = pd.read_excel(const.ORIGINAL_DATA, sheet_name=sheet, parse_dates=['Unnamed: 1'])
                 selected_dataset = dataset.filter(
                     ['AT', 'BE', 'DE', 'DE_50hertz', 'DE_LU', 'DE_amprion', 'DE_tennet', 'HU',
                      'LU', 'NL', 'BG', 'CY', 'GB_GBN', 'GB_UKM', 'IE', 'CH', 'CZ', 'DK', 'DK_1', 'DK_2',

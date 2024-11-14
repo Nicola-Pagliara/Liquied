@@ -56,43 +56,161 @@ def test_case():
 
 
 def extract_model_anomalies():
-    model_pred = model.LTCAutoEncoder.load_from_checkpoint(os.path.join(const.WEIGHTS_PATH, '15min.ckpt'))
     for time in const.TIME_INTERVAL:
         match time:
             case '15min':
+                model_pred = model.LTCAutoEncoder.load_from_checkpoint(os.path.join(const.WEIGHTS_PATH, '15min.ckpt'))
                 for nations in const.MIN_15:
                     inference = Trainer(accelerator='cuda')
                     dataset = TSDataset(batch_size=128,
                                         path_dir=os.path.join(const.TRAIN_15, nations + '_anomaly.json'),
                                         timestep=25, nations=nations)
-                    preds = inference.predict(model_pred, dataset, return_predictions=True)
+                    preds = inference.predict(model_pred, dataset)
                     target = dataset.predict.norm_data
-                    last_pred = preds.pop()
-                    last_pred = torch.tensor(last_pred, dtype=torch.float32)
-                    pad_tensor = torch.zeros(size=(dataset.batch_size - last_pred.shape[0], last_pred.shape[1],
-                                                   last_pred.shape[2]))
-                    last_pred = torch.concat([last_pred, pad_tensor])
-                    preds.append(last_pred)
-                    tensor_preds = torch.stack(preds, dim=1)
-                    pad_nu = numpy.asarray(preds).flatten()
-                    target = numpy.pad(target, (0, pad_nu.shape[0] - target.shape[0]), 'constant')
+                    list_decoded = []
+                    for pred in preds:
+                        decoded = pred['decoded']
+                        list_decoded.append(decoded)
+
+                    decoded_preds = torch.concat(list_decoded, dim=0)
+                    decoded_preds = decoded_preds.reshape([decoded_preds.shape[0], decoded_preds.shape[1]])
+                    pad_tensor = torch.zeros(size=(1, decoded_preds.shape[1]))
+                    decoded_preds = torch.concat((decoded_preds, pad_tensor))
+                    target = np.pad(target, (0, decoded_preds.shape[0] * decoded_preds.shape[1] - target.shape[0]),
+                                    'constant')
+                    decoded_preds = torch.tensor(decoded_preds, dtype=torch.float32)
                     target = torch.tensor(target, dtype=torch.float32)
-                    target = target.reshape(
-                        [tensor_preds.shape[0], tensor_preds.shape[1], tensor_preds.shape[2], tensor_preds.shape[3]])
-                    anomaly = torch.mean((tensor_preds - target) ** 2, dim=1)
+                    target = target.reshape(decoded_preds.shape[0], decoded_preds.shape[1])
+
+                    anomaly = torch.mean((decoded_preds - target) ** 2, dim=0)
                     # threshold = 2
                     # anomaly = anomaly > threshold
                     anomaly_s = pd.Series(np.asarray(anomaly).flatten())
                     mean, std = dataset.predict.mean, dataset.predict.std
                     denormalized_anomaly = (anomaly_s * std) + mean
-                    # anomalous_nt = np.asarray(denormalized_anomaly).astype(int)
-                    plot_anomaly(denormalized_anomaly, nations, '15min')
-                    # precision, recall, f1_score, _ = precision_recall_fscore_support(binary_labels, anomalous_nt, average='weighted')
-                    # print(f'F1_SCORE {f1_score}, precision {precision}, recall {recall}, anomalay = {anomalous_nt}, labels = {binary_labels}')
+                    mad, iqr, z_score = plot_anomaly(denormalized_anomaly, nations, '15min')
+
+                    """
+                      denormalized_anomaly = np.pad(denormalized_anomaly,
+                                                  (0, np.asarray(mad).shape[0] - np.asarray(denormalized_anomaly).shape[0]), 'constant')
+                    precision, recall, f1_score, _ = precision_recall_fscore_support(mad, denormalized_anomaly,
+                                                                                     average='weighted')
+                    print(f'F1_SCORE {f1_score}, precision {precision}, recall {recall} for EU {nations} Vs MAD')
+                    denormalized_anomaly = np.pad(denormalized_anomaly, (
+                    0, np.asarray(iqr).shape[0] - np.asarray(denormalized_anomaly.shape[0]), 'constant'))
+                    precision, recall, f1_score, _ = precision_recall_fscore_support(iqr, denormalized_anomaly,
+                                                                                     average='weighted')
+                    print(f'F1_SCORE {f1_score}, precision {precision}, recall {recall} for EU {nations} Vs IQR')
+                    denormalized_anomaly = np.pad(denormalized_anomaly, (0, np.asarray(z_score).shape[0] -
+                                                                         np.asarray(denormalized_anomaly).shape[0]),
+                                                  'constant')
+                    precision, recall, f1_score, _ = precision_recall_fscore_support(z_score, denormalized_anomaly,
+                                                                                     average='weighted')
+                    print(f'F1_SCORE {f1_score}, precision {precision}, recall {recall} for EU {nations} Vs Z-score') 
+                    """
+
             case '30min':
+                model_pred = model.LTCAutoEncoder.load_from_checkpoint(os.path.join(const.WEIGHTS_PATH, '30min.ckpt'))
+                for nations in const.MIN_30:
+                    inference = Trainer(accelerator='cuda')
+                    dataset = TSDataset(batch_size=128,
+                                        path_dir=os.path.join(const.TRAIN_30, nations + '_anomaly.json'),
+                                        timestep=25, nations=nations)
+                    preds = inference.predict(model_pred, dataset)
+                    target = dataset.predict.norm_data
+                    list_decoded = []
+                    for pred in preds:
+                        decoded = pred['decoded']
+                        list_decoded.append(decoded)
+
+                    decoded_preds = torch.concat(list_decoded, dim=0)
+                    decoded_preds = decoded_preds.reshape([decoded_preds.shape[0], decoded_preds.shape[1]])
+                    pad_tensor = torch.zeros(size=(1, decoded_preds.shape[1]))
+                    decoded_preds = torch.concat((decoded_preds, pad_tensor))
+                    target = np.pad(target, (0, decoded_preds.shape[0] * decoded_preds.shape[1] - target.shape[0]),
+                                    'constant')
+                    decoded_preds = torch.tensor(decoded_preds, dtype=torch.float32)
+                    target = torch.tensor(target, dtype=torch.float32)
+                    target = target.reshape(decoded_preds.shape[0], decoded_preds.shape[1])
+
+                    anomaly = torch.mean((decoded_preds - target) ** 2, dim=0)
+                    # threshold = 2
+                    # anomaly = anomaly > threshold
+                    anomaly_s = pd.Series(np.asarray(anomaly).flatten())
+                    mean, std = dataset.predict.mean, dataset.predict.std
+                    denormalized_anomaly = (anomaly_s * std) + mean
+                    mad, iqr, z_score = plot_anomaly(denormalized_anomaly, nations, '30min')
+
+                    """
+                      denormalized_anomaly = np.pad(denormalized_anomaly,
+                                                  (0, np.asarray(mad).shape[0] - np.asarray(denormalized_anomaly).shape[0]), 'constant')
+                    precision, recall, f1_score, _ = precision_recall_fscore_support(mad, denormalized_anomaly,
+                                                                                     average='weighted')
+                    print(f'F1_SCORE {f1_score}, precision {precision}, recall {recall} for EU {nations} Vs MAD')
+                    denormalized_anomaly = np.pad(denormalized_anomaly, (
+                    0, np.asarray(iqr).shape[0] - np.asarray(denormalized_anomaly.shape[0]), 'constant'))
+                    precision, recall, f1_score, _ = precision_recall_fscore_support(iqr, denormalized_anomaly,
+                                                                                     average='weighted')
+                    print(f'F1_SCORE {f1_score}, precision {precision}, recall {recall} for EU {nations} Vs IQR')
+                    denormalized_anomaly = np.pad(denormalized_anomaly, (0, np.asarray(z_score).shape[0] -
+                                                                         np.asarray(denormalized_anomaly).shape[0]),
+                                                  'constant')
+                    precision, recall, f1_score, _ = precision_recall_fscore_support(z_score, denormalized_anomaly,
+                                                                                     average='weighted')
+                    print(f'F1_SCORE {f1_score}, precision {precision}, recall {recall} for EU {nations} Vs Z-score') 
+                    """
                 pass
 
             case '60min':
+                model_pred = model.LTCAutoEncoder.load_from_checkpoint(os.path.join(const.WEIGHTS_PATH, '60min.ckpt'))
+                for nations in const.MIN_60:
+                    inference = Trainer(accelerator='cuda')
+                    dataset = TSDataset(batch_size=128,
+                                        path_dir=os.path.join(const.TRAIN_60, nations + '_anomaly.json'),
+                                        timestep=25, nations=nations)
+                    preds = inference.predict(model_pred, dataset)
+                    target = dataset.predict.norm_data
+                    list_decoded = []
+                    for pred in preds:
+                        decoded = pred['decoded']
+                        list_decoded.append(decoded)
+
+                    decoded_preds = torch.concat(list_decoded, dim=0)
+                    decoded_preds = decoded_preds.reshape([decoded_preds.shape[0], decoded_preds.shape[1]])
+                    pad_tensor = torch.zeros(size=(1, decoded_preds.shape[1]))
+                    decoded_preds = torch.concat((decoded_preds, pad_tensor))
+                    target = np.pad(target, (0, decoded_preds.shape[0] * decoded_preds.shape[1] - target.shape[0]),
+                                    'constant')
+                    decoded_preds = torch.tensor(decoded_preds, dtype=torch.float32)
+                    target = torch.tensor(target, dtype=torch.float32)
+                    target = target.reshape(decoded_preds.shape[0], decoded_preds.shape[1])
+
+                    anomaly = torch.mean((decoded_preds - target) ** 2, dim=0)
+                    # threshold = 2
+                    # anomaly = anomaly > threshold
+                    anomaly_s = pd.Series(np.asarray(anomaly).flatten())
+                    mean, std = dataset.predict.mean, dataset.predict.std
+                    denormalized_anomaly = (anomaly_s * std) + mean
+                    mad, iqr, z_score = plot_anomaly(denormalized_anomaly, nations, '60min')
+
+                    """
+                      denormalized_anomaly = np.pad(denormalized_anomaly,
+                                                  (0, np.asarray(mad).shape[0] - np.asarray(denormalized_anomaly).shape[0]), 'constant')
+                    precision, recall, f1_score, _ = precision_recall_fscore_support(mad, denormalized_anomaly,
+                                                                                     average='weighted')
+                    print(f'F1_SCORE {f1_score}, precision {precision}, recall {recall} for EU {nations} Vs MAD')
+                    denormalized_anomaly = np.pad(denormalized_anomaly, (
+                    0, np.asarray(iqr).shape[0] - np.asarray(denormalized_anomaly.shape[0]), 'constant'))
+                    precision, recall, f1_score, _ = precision_recall_fscore_support(iqr, denormalized_anomaly,
+                                                                                     average='weighted')
+                    print(f'F1_SCORE {f1_score}, precision {precision}, recall {recall} for EU {nations} Vs IQR')
+                    denormalized_anomaly = np.pad(denormalized_anomaly, (0, np.asarray(z_score).shape[0] -
+                                                                         np.asarray(denormalized_anomaly).shape[0]),
+                                                  'constant')
+                    precision, recall, f1_score, _ = precision_recall_fscore_support(z_score, denormalized_anomaly,
+                                                                                     average='weighted')
+                    print(f'F1_SCORE {f1_score}, precision {precision}, recall {recall} for EU {nations} Vs Z-score') 
+                    """
                 pass
 
     return
@@ -164,14 +282,14 @@ def plot_anomaly(anomaly_model, nations, name_sheet):
     fig6, ax6 = mpt.subplots(figsize=(10, 8))
     sns.lineplot(data=clean, ax=ax6)
     sns.scatterplot(data=anomalies_zs, palette=['#FF0000'], ax=ax6)
-    ax3.set(xlabel="Time Period",
+    ax6.set(xlabel="Time Period",
             ylabel=f"Load of {nations}",
             title=f"{nations} Electricity  Consumption  LinePlot with Anomalies \n 2015-2020 ",
             xlim=[datetime.date(2015, 1, 1), datetime.date(2020, 10, 1)])
     mpt.legend(labels=[f' load of {nations}', f'{nations} Anomalies'])
     fig6.savefig(os.path.join(final_path, nations + '_zscore_anomaly_plot.png'))
 
-    return
+    return outlier_mad, outlier_iqr, outlier_z
 
 
 def test_phase():

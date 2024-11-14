@@ -59,8 +59,8 @@ class LTCAutoEncoder(L.LightningModule):
 
     def predict_step(self, batch, batch_idx, dataloader_idx=0):
         x = batch
-        decoded, _ = self(x)
-        return decoded
+        decoded, encoded = self(x)
+        return {'decoded': decoded, 'encoded': encoded}
 
     def configure_optimizers(self):
         optimizer = torch.optim.AdamW(self.parameters(), lr=self.lr)

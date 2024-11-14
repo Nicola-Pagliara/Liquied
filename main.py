@@ -3,12 +3,14 @@ import json
 from EDA import EDA as eda
 from Train import Train as trn
 from Evaluation import Eval as eval
+from Models import Clustering as clus
 
 
 def main():
-    eda.overview_analysis(original_path='Dataset/time_series.xlsx', name_data=['15min', '30min', '60min'])
+    eda.overview_analysis()
     trn.train()
     eval.test_phase()
+    clus.dbscan_encoded()
 
 
 if __name__ == '__main__':
